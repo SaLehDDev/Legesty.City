@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الاختبار الإلكتروني</title>
+    <title>Legesty City - سيرفر الحياة الواقعية الأفضل</title>
     <style>
         * {
             margin: 0;
@@ -12,645 +12,752 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #202c2c 0%, #1a2424 50%, #0f1616 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 800px;
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid #000000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #7affff, #5ce1e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(122, 255, 255, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item a:hover {
+            background: linear-gradient(45deg, #7affff, #5ce1e6);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(122, 255, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(rgba(15, 15, 35, 0.8), rgba(15, 15, 35, 0.8)),
+                url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAH0AyADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #7affff, #5ce1e6, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(122, 255, 255, 0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(122, 255, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(122, 255, 255, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
             overflow: hidden;
         }
 
-        .header {
-            background: #202c2c;
-            padding: 30px;
-            text-align: center;
-            border-bottom: 3px solid #1a2424;
-        }
-
-        .header h1 {
+        .btn-primary {
+            background: transparent;
             color: white;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #7affff;
         }
 
-        .header p {
-            color: #cccccc;
-            font-size: 1.1em;
-        }
-
-        .form-container {
-            padding: 40px;
-        }
-
-        .question-group {
-            margin-bottom: 30px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-right: 5px solid #202c2c;
-            transition: all 0.3s ease;
-        }
-
-        .question-group:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .question-title {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .required {
-            color: #e74c3c;
-        }
-
-        input[type="text"], input[type="email"], textarea, select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e1e8ed;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        input[type="text"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #202c2c;
-            box-shadow: 0 0 0 3px rgba(32, 44, 44, 0.2);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .radio-group, .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .radio-option, .checkbox-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-            cursor: pointer;
-        }
-
-        .radio-option:hover, .checkbox-option:hover {
-            background: #e8f7ff;
-        }
-
-        input[type="radio"], input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #202c2c;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #202c2c, #1a2424);
+        .btn-secondary {
+            background: transparent;
             color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block;
-            margin: 40px auto 0;
-            min-width: 200px;
+            border: 2px solid #7affff;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(32, 44, 44, 0.4);
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(122, 255, 255, 0.4);
         }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: rgba(26, 26, 46, 0.8);
         }
 
-        .status-message {
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(122, 255, 255, 0.1), rgba(92, 225, 230, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            padding: 20px;
-            margin: 20px 0;
+            border: 1px solid rgba(122, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(122, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #7affff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #7affff, #5ce1e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(122, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(122, 255, 255, 0.3);
+            border-color: rgba(122, 255, 255, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #7affff;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-description {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Jobs Section */
+        .jobs {
+            padding: 4rem 2rem;
+            background: rgba(22, 33, 62, 0.8);
+        }
+
+        .jobs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .job-card {
+            background: linear-gradient(135deg, rgba(122, 255, 255, 0.15), rgba(92, 225, 230, 0.15));
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(122, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(122, 255, 255, 0.2);
+        }
+
+        .job-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #5ce1e6;
+        }
+
+        /* Rules Section */
+        .rules {
+            padding: 4rem 2rem;
+        }
+
+        .rules-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rule-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
             border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-            display: none;
+            border-right: 4px solid #7affff;
+            transition: all 0.3s ease;
         }
 
-        .status-success {
-            background: #d4edda;
-            color: #155724;
-            border: 2px solid #c3e6cb;
+        .rule-item:hover {
+            background: rgba(122, 255, 255, 0.1);
+            transform: translateX(10px);
         }
 
-        .status-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 2px solid #f5c6cb;
+        /* Discord Section */
+        .discord {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #7289da, #5865f2);
+            text-align: center;
         }
 
-        .status-pending {
-            background: #fff3cd;
-            color: #856404;
-            border: 2px solid #ffeaa7;
+        .discord-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .status-approved {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 2px solid #bee5eb;
+        .discord h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .status-rejected {
-            background: #f8d7da;
-            color: #721c24;
-            border: 2px solid #f5c6cb;
-        }
-
-        .loading {
+        .discord-btn {
+            background: #ffffff;
+            color: #5865f2;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #202c2c;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .discord-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+        /* Footer */
+        .footer {
+            background: #0f0f23;
+            padding: 3rem 2rem 1rem;
+            border-top: 2px solid #ff6b35;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                border-radius: 10px;
+            .nav-menu {
+                display: none;
             }
             
-            .header {
-                padding: 20px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .header h1 {
-                font-size: 2em;
+            .hero p {
+                font-size: 1.2rem;
             }
             
-            .form-container {
-                padding: 20px;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #7affff;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(1);
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>الاختبار الإلكتروني</h1>
-            <p>يرجى ملء جميع المعلومات المطلوبة بعناية</p>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">🏙️ Legesty City RP</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home">الرئيسية</a></li>
+                <li class="nav-item"><a href="#features">المميزات</a></li>
+                <li class="nav-item"><a href="#jobs">الوظائف</a></li>
+                <li class="nav-item"><a href="#rules">القوانين</a></li>
+                <li class="nav-item"><a href="#" id="exam-link">الاختبار الإلكتروني</a></li>
+                <li class="nav-item"><a href="#discord">ديسكورد</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>مرحباً بك في Legesty City</h1>
+            <p>أفضل سيرفر الحياة الواقعية في Roblox</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">ابدأ اللعب الآن</a>
+                <a href="#features" class="btn btn-secondary">تعرف على المزيد</a>
+            </div>
         </div>
+    </section>
 
-        <div class="form-container">
-            <form id="examForm">
-                <!-- معلومات شخصية -->
-                <div class="question-group">
-                    <div class="question-title">الاسم الكامل <span class="required">*</span></div>
-                    <input type="text" name="fullName" required placeholder="أدخل اسمك الكامل">
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">يوزر الديسكورد <span class="required">*</span></div>
-                    <input type="text" name="discordUsername" required placeholder="مثال: username#1234">
-                </div>
-
-                <!-- الأسئلة -->
-                <div class="question-group">
-                    <div class="question-title">1. ما هو الميتا جيمنق؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q1" value="اي معلومة تحصل عليها من خارج المدينة مثال معلومة حصلت عليها من بث او دسكورد او مقطع باليوتيوب" required>
-                            <span>اي معلومة تحصل عليها من خارج المدينة مثال معلومة حصلت عليها من بث او دسكورد او مقطع باليوتيوب</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q1" value="ميتا جيمنق قدامي سياره واكمل وارفع عليه السلاح واخليه ينزل واركبها" required>
-                            <span>ميتا جيمنق قدامي سياره واكمل وارفع عليه السلاح واخليه ينزل واركبها</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q1" value="اروح مركز الشرطه بشكل طبيعي واتقمص الرول بلاي واحاول اني اسوي نفسي طبيعي" required>
-                            <span>اروح مركز الشرطه بشكل طبيعي واتقمص الرول بلاي واحاول اني اسوي نفسي طبيعي</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">2. هل ممنوع تقتل البوتات؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q2" value="ايه نعم ممنوع" required>
-                            <span>ايه نعم ممنوع</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q2" value="لاغير صحيح مب ممنوع" required>
-                            <span>لاغير صحيح مب ممنوع</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">3. هل مسموح تقتل بمنطقة آمنة؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q3" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q3" value="خطأ" required>
-                            <span>خطأ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">4. هل مسموح تخطف مواطن عند المحكمة؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q4" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q4" value="خطأ" required>
-                            <span>خطأ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">5. اذا مت بشكل كامل هل يحق ترجع او تتذكر الي صار؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q5" value="ايه" required>
-                            <span>ايه</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q5" value="لآ" required>
-                            <span>لآ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">6. هل مسموح تكذب بالرول؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q6" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q6" value="لا" required>
-                            <span>لا</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">7. يحق لك تستعمل RDM مهما كان السبب؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q7" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q7" value="لا" required>
-                            <span>لا</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">8. هل يحق لك اخذ سلاح مع عسكري وتقتل فيه اي شي يمشي؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q8" value="لا" required>
-                            <span>لا</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q8" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">9. ما معنى كلمة دسكورد؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q9" value="برنامج الدولة" required>
-                            <span>برنامج الدولة</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q9" value="دسكورد" required>
-                            <span>دسكورد</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q9" value="سوالف" required>
-                            <span>سوالف</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">10. هل مسموح لك تحمل شخص بدون يرفع يده؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q10" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q10" value="لآ" required>
-                            <span>لآ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">11. هل يحق لك تدخل على الناس وتصدم فيهم؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q11" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q11" value="لآ" required>
-                            <span>لآ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">12. هل اذا انخطفت او صار لك شي تروح تعلم اخوياك علطول؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q12" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q12" value="لآ" required>
-                            <span>لآ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">13. هل يحق لك التليفيت مهما كان السبب؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q13" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q13" value="لآ" required>
-                            <span>لآ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-group">
-                    <div class="question-title">14. الخوف على الحياة - NVL: عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد من وسائل أخرى يعتبر الخوف على الحياة شي اساسي ومهم جدا مثال: اذا كان هناك اداة تعرض حياتك للخطر، تخاف على حياتك وتحاول تستسلم وتسوي كل شي؟ <span class="required">*</span></div>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="q14" value="صحيح" required>
-                            <span>صحيح</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="q14" value="خطأ" required>
-                            <span>خطأ</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn" id="submitButton">
-                    إرسال الاختبار
-                </button>
-            </form>
-
-            <div id="statusMessage" class="status-message"></div>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card fade-in">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">لاعب نشط</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">متاح دائماً</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">وظيفة متنوعة</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">5★</div>
+                <div class="stat-label">تقييم ممتاز</div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">مميزات السيرفر</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏙️</div>
+                <h3 class="feature-title">مدينة حقيقية</h3>
+                <p class="feature-description">مدينة مفصلة بالكامل في Roblox مع مباني حقيقية وأماكن تفاعلية للاستكشاف</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">وظائف متنوعة</h3>
+                <p class="feature-description">أكثر من 50 وظيفة مختلفة من الطبيب إلى رجل الأعمال إلى المجرم</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🚗</div>
+                <h3 class="feature-title">سيارات حصرية</h3>
+                <p class="feature-description">مجموعة ضخمة من السيارات والمركبات المتنوعة في Roblox</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏠</div>
+                <h3 class="feature-title">عقارات للبيع</h3>
+                <p class="feature-description">اشترِ منزلك الخاص أو شقة أو حتى فيلا فاخرة في أفضل الأحياء</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">👮‍♂️</div>
+                <h3 class="feature-title">نظام شرطة متطور</h3>
+                <p class="feature-description">نظام شرطة واقعي مع دوريات وتحقيقات وقضايا جنائية</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎭</div>
+                <h3 class="feature-title">أحداث مستمرة</h3>
+                <p class="feature-description">فعاليات وأحداث يومية تجعل التجربة مثيرة ومتجددة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs">
+        <h2 class="section-title">الوظائف المتاحة</h2>
+        <div class="jobs-grid">
+            <div class="job-card fade-in">
+                <div class="job-icon">👮‍♂️</div>
+                <h3>شرطي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🚑</div>
+                <h3>طبيب</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">👨‍💼</div>
+                <h3>رجل أعمال</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🚖</div>
+                <h3>سائق تاكسي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🔧</div>
+                <h3>ميكانيكي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🏪</div>
+                <h3>صاحب متجر</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">📺</div>
+                <h3>صحفي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">💰</div>
+                <h3>محاسب</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="rules">
+        <h2 class="section-title">قوانين السيرفر</h2>
+        <div class="rules-container">
+            <div class="rule-item fade-in">
+                <h3>🚫 عدم التخريب</h3>
+                <p>ممنوع التخريب أو إفساد تجربة اللاعبين الآخرين</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>🎭 اللعب بالشخصية</h3>
+                <p>يجب الالتزام بشخصيتك والتصرف بواقعية</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>💬 الاحترام المتبادل</h3>
+                <p>احترم جميع اللاعبين وتجنب السب والشتم</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>🚗 القيادة الآمنة</h3>
+                <p>قد بحذر واتبع قوانين المرور</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>⚖️ العدالة</h3>
+                <p>لا تستغل الأخطاء أو تستخدم الغش</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Section -->
+    <section id="discord" class="discord">
+        <div class="discord-content">
+            <h2>انضم إلى مجتمعنا</h2>
+            <p>تواصل مع اللاعبين الآخرين واحصل على آخر الأخبار والتحديثات</p>
+            <a href="https://discord.gg/li-1" class="discord-btn">انضم إلى Discord</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Legesty City</h3>
+                <p>أفضل سيرفر الحياة الواقعية في Roblox. انضم إلينا وعش تجربة لا تُنسى.</p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#jobs">الوظائف</a></li>
+                    <li><a href="#rules">القوانين</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">تويتر</a></li>
+                    <li><a href="#">يوتيوب</a></li>
+                    <li><a href="#">انستقرام</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>معلومات السيرفر</h3>
+                <ul>
+                    <li>IP: 127.0.0.1:30120</li>
+                    <li>اللاعبين: 128/128</li>
+                    <li>الحالة: متصل</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Legesty City. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
 
     <script>
-        const WEBHOOK_URL = 'https://discord.com/api/webhooks/1399103275718152223/TMr7U4opdRojnnm-lXzLUvfdk-bLi8loi5yRkV24t2Ha55VzVZ0q5Ps6JZZhOT2k5vKk';
-        
-        let currentSubmissionId = null;
-        let pollInterval = null;
-
-        document.getElementById('examForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitButton');
-            
-            // تعطيل الزر وإظهار التحميل
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'جاري الإرسال... <span class="loading"></span>';
-            
-            try {
-                // جمع البيانات
-                const formData = new FormData(this);
-                const data = {};
-                
-                // جمع جميع البيانات
-                for (let [key, value] of formData.entries()) {
-                    data[key] = value;
-                }
-                
-                // إنشاء معرف فريد للطلب
-                currentSubmissionId = 'exam_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                
-                // تحضير الحقول للرسالة
-                const fields = [
-                    { name: "👤 الاسم الكامل", value: data.fullName || "غير محدد", inline: true },
-                    { name: "💬 يوزر الديسكورد", value: data.discordUsername || "غير محدد", inline: true },
-                    { name: "━━━━━━━━━━━━━━━━━━━━", value: "📋 **إجابات الاختبار**", inline: false }
-                ];
-
-                // إضافة الأسئلة والإجابات
-                const questions = [
-                    "1️⃣ ما هو الميتا جيمنق؟",
-                    "2️⃣ هل ممنوع تقتل البوتات؟", 
-                    "3️⃣ هل مسموح تقتل بمنطقة آمنة؟",
-                    "4️⃣ هل مسموح تخطف مواطن عند المحكمة؟",
-                    "5️⃣ اذا مت بشكل كامل هل يحق ترجع او تتذكر الي صار؟",
-                    "6️⃣ هل مسموح تكذب بالرول؟",
-                    "7️⃣ يحق لك تستعمل RDM مهما كان السبب؟",
-                    "8️⃣ هل يحق لك اخذ سلاح مع عسكري وتقتل فيه اي شي يمشي؟",
-                    "9️⃣ ما معنى كلمة دسكورد؟",
-                    "🔟 هل مسموح لك تحمل شخص بدون يرفع يده؟",
-                    "1️⃣1️⃣ هل يحق لك تدخل على الناس وتصدم فيهم؟",
-                    "1️⃣2️⃣ هل اذا انخطفت او صار لك شي تروح تعلم اخوياك علطول؟",
-                    "1️⃣3️⃣ هل يحق لك التليفيت مهما كان السبب؟",
-                    "1️⃣4️⃣ الخوف على الحياة - NVL"
-                ];
-
-                for (let i = 1; i <= 14; i++) {
-                    const answer = data[`q${i}`] || "لم يجب";
-                    fields.push({
-                        name: questions[i-1],
-                        value: answer.length > 100 ? answer.substring(0, 97) + "..." : answer,
-                        inline: false
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
+            });
+        });
 
-                fields.push({ name: "🆔 معرف الطلب", value: currentSubmissionId, inline: false });
-
-                // تحضير رسالة Discord
-                const embed = {
-                    title: "🎮 طلب اختبار الرول بلاي الجديد",
-                    color: 0x202C2C,
-                    fields: fields,
-                    timestamp: new Date().toISOString(),
-                    footer: {
-                        text: "نظام اختبار الرول بلاي • " + new Date().toLocaleString('ar-SA')
-                    }
-                };
-
-                const discordPayload = {
-                    content: `📢 **طلب اختبار جديد وصل!**\n👤 **المتقدم:** ${data.fullName}\n💬 **الديسكورد:** ${data.discordUsername}\n\n**للموافقة على الطلب، اكتب:** \`/approve ${currentSubmissionId}\`\n**للرفض، اكتب:** \`/reject ${currentSubmissionId}\``,
-                    embeds: [embed]
-                };
-
-                // إرسال إلى Discord
-                const response = await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(discordPayload)
-                });
-
-                if (response.ok || response.status === 204) {
-                    // نجح الإرسال - الانتقال إلى صفحة الانتظار
-                    showWaitingPage(data.fullName, data.discordUsername, currentSubmissionId);
-                } else {
-                    throw new Error(`خطأ في الإرسال: ${response.status}`);
-                }
-                
-            } catch (error) {
-                console.error('خطأ تفصيلي:', error);
-                
-                // إعادة تفعيل الزر
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'إرسال الاختبار';
-                
-                // عرض رسالة خطأ
-                alert('حدث خطأ أثناء إرسال الاختبار. يرجى المحاولة مرة أخرى.');
+        // Particles animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particlesContainer.appendChild(particle);
             }
-        });
+        }
 
-        function showWaitingPage(name, discord, submissionId) {
-            // إخفاء محتوى الصفحة الحالي
-            document.querySelector('.container').innerHTML = `
-                <div class="header">
-                    <h1>🎮 تم إرسال الاختبار بنجاح!</h1>
-                    <p>طلبك تحت المراجعة الآن</p>
-                </div>
+        // Fade in animation on scroll
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
                 
-                <div class="form-container" style="text-align: center; padding: 60px 40px;">
-                    <div style="background: linear-gradient(135deg, #202c2c, #1a2424); color: white; padding: 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                        <div style="font-size: 4em; margin-bottom: 20px;">⏳</div>
-                        <h2 style="margin-bottom: 15px; font-size: 2em;">انتظر القبول أو الرفض</h2>
-                        <p style="font-size: 1.2em; opacity: 0.9; margin-bottom: 25px;">تم إرسال طلبك إلى الإدارة بنجاح</p>
-                        
-                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                            <p><strong>👤 الاسم:</strong> ${name}</p>
-                            <p><strong>💬 الديسكورد:</strong> ${discord}</p>
-                            <p><strong>🆔 رقم الطلب:</strong> ${submissionId}</p>
-                            <p><strong>🕐 وقت الإرسال:</strong> ${new Date().toLocaleString('ar-SA')}</p>
-                        </div>
-                        
-                        <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; border: 2px dashed rgba(255,255,255,0.3);">
-                            <h3 style="margin-bottom: 15px; color: #7affff;">📋 ما الذي يحدث الآن؟</h3>
-                            <div style="text-align: right; font-size: 1em; line-height: 1.8;">
-                                <p>✅ تم استلام طلبك بنجاح</p>
-                                <p>🔍 الإدارة تراجع إجاباتك حالياً</p>
-                                <p>⏰ ستصلك النتيجة قريباً</p>
-                                <p>💬 تابع الديسكورد للحصول على التحديثات</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; border-right: 5px solid #202c2c;">
-                        <h3 style="color: #202c2c; margin-bottom: 20px;">📞 معلومات مهمة</h3>
-                        <div style="text-align: right; color: #555; line-height: 1.8;">
-                            <p><strong>🕐 وقت المراجعة:</strong> عادة من 15-30 دقيقة</p>
-                            <p><strong>📱 التواصل:</strong> تابع الديسكورد للحصول على النتيجة</p>
-                            <p><strong>🔄 في حالة الرفض:</strong> يمكنك إعادة التقديم بعد 24 ساعة</p>
-                            <p><strong>✅ في حالة القبول:</strong> ستحصل على دور الوصول للخادم</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 40px;">
-                        <button onclick="location.reload()" style="background: linear-gradient(45deg, #202c2c, #1a2424); color: white; padding: 15px 30px; border: none; border-radius: 25px; font-size: 1.1em; cursor: pointer; transition: all 0.3s ease;">
-                            🔄 تقديم طلب جديد
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            // إضافة تأثير تحريك العداد
-            let dots = 0;
-            setInterval(() => {
-                const loadingText = document.querySelector('h2');
-                if (loadingText) {
-                    dots = (dots + 1) % 4;
-                    loadingText.innerHTML = 'انتظر القبول أو الرفض' + '.'.repeat(dots);
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
                 }
-            }, 1000);
+            });
         }
 
-        // محاكاة نظام الاستجابة للموافقة/الرفض
-        function simulateApprovalSystem() {
-            // في النظام الحقيقي، ستحتاج لـ Discord Bot للتعامل مع button interactions
-            // هنا نضع محاكاة بسيطة للاختبار
-            
-            // يمكن إضافة polling أو WebSocket للاستماع للتحديثات من الخادم
-            console.log('نظام المحاكاة جاهز للاستقبال');
-        }
-
-        // تفعيل النظام عند تحميل الصفحة
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            simulateApprovalSystem();
-            console.log('نظام الاختبار جاهز!');
+            createParticles();
+            handleScrollAnimations();
+            
+            // Exam link functionality
+            const examLink = document.getElementById('exam-link');
+            examLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open('https://salehddev.github.io/Legesty.City.Electronic-test/', '_blank');
+            });
+            
+            // Update stats with animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalNumber = stat.textContent;
+                const isPlus = finalNumber.includes('+');
+                const isStar = finalNumber.includes('★');
+                const isSlash = finalNumber.includes('/');
+                
+                if (!isPlus && !isStar && !isSlash) {
+                    let currentNumber = 0;
+                    const increment = parseInt(finalNumber) / 100;
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= parseInt(finalNumber)) {
+                            stat.textContent = finalNumber;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(currentNumber);
+                        }
+                    }, 20);
+                }
+            });
         });
 
-        // إضافة تأثيرات تفاعلية
-        document.querySelectorAll('.question-group').forEach(group => {
-            group.addEventListener('mouseenter', function() {
-                this.style.borderRightColor = '#1a2424';
-            });
-            
-            group.addEventListener('mouseleave', function() {
-                this.style.borderRightColor = '#202c2c';
-            });
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
         });
     </script>
 </body>
