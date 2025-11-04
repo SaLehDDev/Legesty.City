@@ -390,49 +390,37 @@
             gap: 2rem;
         }
 
-        .rule-category {
-            background: rgba(255, 255, 255, 0.05);
+        .rule-btn {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+            border: 2px solid rgba(79, 172, 254, 0.3);
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(79, 172, 254, 0.3);
-        }
-
-        .rule-category h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #4facfe;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 1rem;
+            min-height: 200px;
         }
 
-        .rule-item {
-            background: rgba(255, 255, 255, 0.05);
-            margin-bottom: 1rem;
-            padding: 1.2rem;
-            border-radius: 10px;
-            border-right: 4px solid #4facfe;
-            transition: all 0.3s ease;
+        .rule-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
+            border-color: rgba(79, 172, 254, 0.5);
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2));
         }
 
-        .rule-item:hover {
-            background: rgba(79, 172, 254, 0.1);
-            transform: translateX(5px);
+        .rule-btn i {
+            font-size: 3rem;
+            color: #4facfe;
         }
 
-        .rule-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #00f2fe;
-        }
-
-        .rule-item p {
-            font-size: 1rem;
-            opacity: 0.9;
-            line-height: 1.5;
+        .rule-btn h3 {
+            font-size: 1.8rem;
+            color: #4facfe;
         }
 
         .discord {
@@ -672,6 +660,89 @@
             margin-bottom: 0.5rem;
             color: #4facfe;
         }
+
+        /* نافذة القوانين المنبثقة */
+        .rules-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .rules-modal-content {
+            background: linear-gradient(135deg, #0a1a2a, #1a2a3a);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 2px solid #4facfe;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #4facfe;
+            color: #0a1a2a;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            background: #00f2fe;
+        }
+
+        .modal-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #4facfe;
+            font-size: 1.8rem;
+        }
+
+        .modal-rules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-rule-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.2rem;
+            border-radius: 10px;
+            border-right: 4px solid #4facfe;
+        }
+
+        .modal-rule-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #00f2fe;
+        }
+
+        .modal-rule-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -772,71 +843,22 @@
     <section id="rules" class="rules">
         <h2 class="section-title">قوانين السيرفر</h2>
         <div class="rules-container">
-            <!-- قوانين الديسكورد -->
-            <div class="rule-category">
-                <h3><i class="fab fa-discord"></i> قوانين الديسكورد</h3>
-                <div class="rule-item">
-                    <h4>الاحترام</h4>
-                    <p>احترام الجميع وعدم السب وإهانة أي شخص مهما كانت الظروف</p>
-                </div>
-                <div class="rule-item">
-                    <h4>الروابط</h4>
-                    <p>عدم وضع روابط دعوات لسيرفرات أخرى</p>
-                </div>
-                <div class="rule-item">
-                    <h4>المواضيع الحساسة</h4>
-                    <p>عدم الخوض بالأمور الدينية أو السياسية</p>
-                </div>
-                <div class="rule-item">
-                    <h4>تعدد الحسابات</h4>
-                    <p>ممنوع امتلاك أكثر من حساب ديسكورد</p>
-                </div>
-                <div class="rule-item">
-                    <h4>انتحال الشخصيات</h4>
-                    <p>يمنع انتحال الشخصيات الإدارية</p>
-                </div>
-                <div class="rule-item">
-                    <h4>السبام</h4>
-                    <p>يمنع السبام في الشات</p>
-                </div>
+            <!-- زر قوانين الديسكورد -->
+            <div class="rule-btn" id="discordRulesBtn">
+                <i class="fab fa-discord"></i>
+                <h3>قوانين الديسكورد</h3>
             </div>
 
-            <!-- قوانين الحياة الجديدة -->
-            <div class="rule-category">
-                <h3><i class="fas fa-heartbeat"></i> قوانين الحياة الجديدة - NLR</h3>
-                <div class="rule-item">
-                    <h4>الإغماء الكامل</h4>
-                    <p>في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة أو فعل أي شيء</p>
-                </div>
-                <div class="rule-item">
-                    <h4>الإنعاش من المسعفين</h4>
-                    <p>في حال تم إسقاطك وإنعاشك من قبل مسعفين تستطيع تذكر جميع الأحداث</p>
-                </div>
-                <div class="rule-item">
-                    <h4>الإبرة في العيادة</h4>
-                    <p>في حال تم إعطاؤك إبرة في العيادة الخاصة لا تستطيع تذكر أي شيء حصل لك</p>
-                </div>
+            <!-- زر قوانين الحياة الجديدة -->
+            <div class="rule-btn" id="nlrRulesBtn">
+                <i class="fas fa-heartbeat"></i>
+                <h3>الحياة الجديدة - NLR</h3>
             </div>
 
-            <!-- قوانين أخرى -->
-            <div class="rule-category">
-                <h3><i class="fas fa-gavel"></i> قوانين أخرى</h3>
-                <div class="rule-item">
-                    <h4>الباور جيمنج - PowerGaming</h4>
-                    <p>استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي</p>
-                </div>
-                <div class="rule-item">
-                    <h4>الخوف على الحياة - NVL</h4>
-                    <p>عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد</p>
-                </div>
-                <div class="rule-item">
-                    <h4>الميتا جيمنج - Metagaming</h4>
-                    <p>أي معلومة تحصل عليها من خارج المدينة (بث، ديسكورد، يوتيوب) تعتبر مخالفة</p>
-                </div>
-                <div class="rule-item">
-                    <h4>القتل العشوائي - RDM</h4>
-                    <p>قتل الأشخاص دون سبب أو تهديد أو بصورة عشوائية يعتبر ممنوع</p>
-                </div>
+            <!-- زر القوانين الأخرى -->
+            <div class="rule-btn" id="otherRulesBtn">
+                <i class="fas fa-gavel"></i>
+                <h3>قوانين أخرى</h3>
             </div>
         </div>
     </section>
@@ -955,6 +977,89 @@
         </div>
     </footer>
 
+    <!-- نوافذ القوانين المنبثقة -->
+    <!-- نافذة قوانين الديسكورد -->
+    <div class="rules-modal" id="discordRulesModal">
+        <div class="rules-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title"><i class="fab fa-discord"></i> قوانين الديسكورد</h2>
+            <div class="modal-rules-list">
+                <div class="modal-rule-item">
+                    <h4>الاحترام</h4>
+                    <p>احترام الجميع وعدم السب وإهانة أي شخص مهما كانت الظروف</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>الروابط</h4>
+                    <p>عدم وضع روابط دعوات لسيرفرات أخرى</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>المواضيع الحساسة</h4>
+                    <p>عدم الخوض بالأمور الدينية أو السياسية</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>تعدد الحسابات</h4>
+                    <p>ممنوع امتلاك أكثر من حساب ديسكورد</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>انتحال الشخصيات</h4>
+                    <p>يمنع انتحال الشخصيات الإدارية</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>السبام</h4>
+                    <p>يمنع السبام في الشات</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة قوانين الحياة الجديدة -->
+    <div class="rules-modal" id="nlrRulesModal">
+        <div class="rules-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title"><i class="fas fa-heartbeat"></i> قوانين الحياة الجديدة - NLR</h2>
+            <div class="modal-rules-list">
+                <div class="modal-rule-item">
+                    <h4>الإغماء الكامل</h4>
+                    <p>في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة أو فعل أي شيء</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>الإنعاش من المسعفين</h4>
+                    <p>في حال تم إسقاطك وإنعاشك من قبل مسعفين تستطيع تذكر جميع الأحداث</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>الإبرة في العيادة</h4>
+                    <p>في حال تم إعطاؤك إبرة في العيادة الخاصة لا تستطيع تذكر أي شيء حصل لك</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة القوانين الأخرى -->
+    <div class="rules-modal" id="otherRulesModal">
+        <div class="rules-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title"><i class="fas fa-gavel"></i> قوانين أخرى</h2>
+            <div class="modal-rules-list">
+                <div class="modal-rule-item">
+                    <h4>الباور جيمنج - PowerGaming</h4>
+                    <p>استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>الخوف على الحياة - NVL</h4>
+                    <p>عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>الميتا جيمنج - Metagaming</h4>
+                    <p>أي معلومة تحصل عليها من خارج المدينة (بث، ديسكورد، يوتيوب) تعتبر مخالفة</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>القتل العشوائي - RDM</h4>
+                    <p>قتل الأشخاص دون سبب أو تهديد أو بصورة عشوائية يعتبر ممنوع</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -981,8 +1086,59 @@
             }
         }
 
+        // التحكم في نوافذ القوانين المنبثقة
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
+
+            // عناصر القوانين
+            const discordRulesBtn = document.getElementById('discordRulesBtn');
+            const nlrRulesBtn = document.getElementById('nlrRulesBtn');
+            const otherRulesBtn = document.getElementById('otherRulesBtn');
+            
+            // نوافذ القوانين
+            const discordRulesModal = document.getElementById('discordRulesModal');
+            const nlrRulesModal = document.getElementById('nlrRulesModal');
+            const otherRulesModal = document.getElementById('otherRulesModal');
+            
+            // أزرار الإغلاق
+            const closeButtons = document.querySelectorAll('.close-modal');
+
+            // فتح نافذة قوانين الديسكورد
+            discordRulesBtn.addEventListener('click', function() {
+                discordRulesModal.style.display = 'flex';
+            });
+
+            // فتح نافذة قوانين الحياة الجديدة
+            nlrRulesBtn.addEventListener('click', function() {
+                nlrRulesModal.style.display = 'flex';
+            });
+
+            // فتح نافذة القوانين الأخرى
+            otherRulesBtn.addEventListener('click', function() {
+                otherRulesModal.style.display = 'flex';
+            });
+
+            // إغلاق النوافذ
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    discordRulesModal.style.display = 'none';
+                    nlrRulesModal.style.display = 'none';
+                    otherRulesModal.style.display = 'none';
+                });
+            });
+
+            // إغلاق النوافذ عند النقر خارجها
+            window.addEventListener('click', function(event) {
+                if (event.target === discordRulesModal) {
+                    discordRulesModal.style.display = 'none';
+                }
+                if (event.target === nlrRulesModal) {
+                    nlrRulesModal.style.display = 'none';
+                }
+                if (event.target === otherRulesModal) {
+                    otherRulesModal.style.display = 'none';
+                }
+            });
         });
 
         window.addEventListener('scroll', function() {
