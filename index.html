@@ -358,28 +358,9 @@
             opacity: 0.9;
         }
 
-        .map-section {
-            padding: 4rem 2rem;
-            background: rgba(22, 33, 62, 0.8);
-            text-align: center;
-        }
-
-        .map-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .map-image {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid #4facfe;
-        }
-
         .rules {
             padding: 4rem 2rem;
+            background: rgba(22, 33, 62, 0.8);
         }
 
         .rules-container {
@@ -420,6 +401,133 @@
 
         .rule-btn h3 {
             font-size: 1.8rem;
+            color: #4facfe;
+        }
+
+        .map-section {
+            padding: 4rem 2rem;
+            background: #0a0a15;
+            text-align: center;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .map-image {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #4facfe;
+        }
+
+        .store-section {
+            padding: 4rem 2rem;
+            background: rgba(15, 25, 45, 0.9);
+        }
+
+        .store-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .store-item {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .store-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
+            border-color: rgba(79, 172, 254, 0.5);
+        }
+
+        .item-icon {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #4facfe;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4facfe;
+        }
+
+        .item-description {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .buy-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: #0a1a2a;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        .store-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .store-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #4facfe;
+        }
+
+        .store-feature i {
+            font-size: 2rem;
+            color: #4facfe;
+            margin-bottom: 1rem;
+        }
+
+        .store-feature h3 {
+            margin-bottom: 0.5rem;
             color: #4facfe;
         }
 
@@ -553,114 +661,6 @@
             }
         }
 
-        /* متجر ليجستي سيتي */
-        .store-section {
-            padding: 4rem 2rem;
-            background: rgba(15, 25, 45, 0.9);
-        }
-
-        .store-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .store-item {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .store-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
-            border-color: rgba(79, 172, 254, 0.5);
-        }
-
-        .item-icon {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #4facfe;
-        }
-
-        .item-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #4facfe;
-        }
-
-        .item-description {
-            flex-grow: 1;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .buy-btn {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a1a2a;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .buy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
-        }
-
-        .store-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .store-feature {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 4px solid #4facfe;
-        }
-
-        .store-feature i {
-            font-size: 2rem;
-            color: #4facfe;
-            margin-bottom: 1rem;
-        }
-
-        .store-feature h3 {
-            margin-bottom: 0.5rem;
-            color: #4facfe;
-        }
-
         /* نافذة القوانين المنبثقة */
         .rules-modal {
             display: none;
@@ -762,14 +762,15 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home">الرئيسية</a></li>
                 <li class="nav-item"><a href="#about">عن السيرفر</a></li>
-                <li class="nav-item"><a href="#map">الخريطة</a></li>
-                <li class="nav-item"><a href="#rules">القوانين</a></li>
-                <li class="nav-item"><a href="#store">متجر ليجستي سيتي</a></li>
+                <li class="nav-item"><a href="#rules">قوانين السيرفر</a></li>
+                <li class="nav-item"><a href="#map">خريطة السيرفر</a></li>
+                <li class="nav-item"><a href="#store">متجر السيرفر</a></li>
                 <li class="nav-item"><a href="https://discord.gg/fm4" target="_blank">ديسكورد</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- 1. القسم الأول: مرحباً بك -->
     <section id="home" class="hero">
         <div class="hero-content">
             <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=690acafd&is=6909797d&hm=a6e56cacb9e0a53ad9035f6bdba180d6d1076a1b61ad3b36d29d62134b0a6021&" alt="Legesty City Logo" class="hero-logo">
@@ -803,6 +804,7 @@
         </div>
     </section>
 
+    <!-- 2. القسم الثاني: عن السيرفر -->
     <section id="about" class="about">
         <h2 class="section-title">عن السيرفر</h2>
         <div class="about-container">
@@ -832,14 +834,7 @@
         </div>
     </section>
 
-    <section id="map" class="map-section">
-        <h2 class="section-title">خريطة السيرفر</h2>
-        <div class="map-container">
-            <img src="https://cdn.discordapp.com/attachments/1382164813890719744/1435270432197705788/4644D24D-57B4-42E7-ADBA-CFBB00D03D1C.png?ex=690b5b41&is=690a09c1&hm=d2c33952611435a374be7597ebde08692ca0d2204f7e6c7c217a83b15751d335&" alt="خريطة Legesty City" class="map-image">
-        </div>
-    </section>
-
-    <!-- قسم القوانين المحدث -->
+    <!-- 3. القسم الثالث: قوانين السيرفر -->
     <section id="rules" class="rules">
         <h2 class="section-title">قوانين السيرفر</h2>
         <div class="rules-container">
@@ -863,7 +858,15 @@
         </div>
     </section>
 
-    <!-- متجر ليجستي سيتي -->
+    <!-- 4. القسم الرابع: خريطة السيرفر -->
+    <section id="map" class="map-section">
+        <h2 class="section-title">خريطة السيرفر</h2>
+        <div class="map-container">
+            <img src="https://cdn.discordapp.com/attachments/1382164813890719744/1435270432197705788/4644D24D-57B4-42E7-ADBA-CFBB00D03D1C.png?ex=690b5b41&is=690a09c1&hm=d2c33952611435a374be7597ebde08692ca0d2204f7e6c7c217a83b15751d335&" alt="خريطة Legesty City" class="map-image">
+        </div>
+    </section>
+
+    <!-- 5. القسم الخامس: متجر السيرفر -->
     <section id="store" class="store-section">
         <h2 class="section-title">متجر ليجستي سيتي</h2>
         <div class="store-container">
@@ -953,9 +956,9 @@
                 <ul>
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#about">عن السيرفر</a></li>
-                    <li><a href="#map">الخريطة</a></li>
-                    <li><a href="#rules">القوانين</a></li>
-                    <li><a href="#store">متجر ليجستي سيتي</a></li>
+                    <li><a href="#rules">قوانين السيرفر</a></li>
+                    <li><a href="#map">خريطة السيرفر</a></li>
+                    <li><a href="#store">متجر السيرفر</a></li>
                 </ul>
             </div>
             <div class="footer-section">
