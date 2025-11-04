@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legesty City - سيرفر الحياة الواقعية الأفضل</title>
+    <title>Legesty City - سيرفر الحياة الواقعية</title>
     <style>
         * {
             margin: 0;
@@ -12,9 +12,10 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -75,13 +76,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: 
-                linear-gradient(rgba(15, 15, 35, 0.8), rgba(15, 15, 35, 0.8)),
-                url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAH0AyADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=');
-            background-size: cover;
-            background-position: center;
             text-align: center;
             position: relative;
+            padding: 0 2rem;
         }
 
         .hero::before {
@@ -159,49 +156,10 @@
             box-shadow: 0 10px 25px rgba(122, 255, 255, 0.4);
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 4rem 2rem;
-            background: rgba(26, 26, 46, 0.8);
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, rgba(122, 255, 255, 0.1), rgba(92, 225, 230, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(122, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(122, 255, 255, 0.2);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #7affff;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-
         /* Features Section */
         .features {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
+            background: rgba(26, 26, 46, 0.8);
         }
 
         .section-title {
@@ -228,6 +186,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(122, 255, 255, 0.2);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .feature-card:hover {
@@ -251,64 +210,6 @@
         .feature-description {
             opacity: 0.8;
             line-height: 1.6;
-        }
-
-        /* Jobs Section */
-        .jobs {
-            padding: 4rem 2rem;
-            background: rgba(22, 33, 62, 0.8);
-        }
-
-        .jobs-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .job-card {
-            background: linear-gradient(135deg, rgba(122, 255, 255, 0.15), rgba(92, 225, 230, 0.15));
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(122, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .job-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(122, 255, 255, 0.2);
-        }
-
-        .job-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #5ce1e6;
-        }
-
-        /* Rules Section */
-        .rules {
-            padding: 4rem 2rem;
-        }
-
-        .rules-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .rule-item {
-            background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 1rem;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-right: 4px solid #7affff;
-            transition: all 0.3s ease;
-        }
-
-        .rule-item:hover {
-            background: rgba(122, 255, 255, 0.1);
-            transform: translateX(10px);
         }
 
         /* Discord Section */
@@ -476,9 +377,6 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home">الرئيسية</a></li>
                 <li class="nav-item"><a href="#features">المميزات</a></li>
-                <li class="nav-item"><a href="#jobs">الوظائف</a></li>
-                <li class="nav-item"><a href="#rules">القوانين</a></li>
-                <li class="nav-item"><a href="#" id="exam-link">الاختبار الإلكتروني</a></li>
                 <li class="nav-item"><a href="#discord">ديسكورد</a></li>
             </ul>
         </nav>
@@ -496,127 +394,29 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card fade-in">
-                <div class="stat-number">1000+</div>
-                <div class="stat-label">لاعب نشط</div>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">متاح دائماً</div>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">وظيفة متنوعة</div>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">5★</div>
-                <div class="stat-label">تقييم ممتاز</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Features Section -->
     <section id="features" class="features">
         <h2 class="section-title">مميزات السيرفر</h2>
         <div class="features-grid">
             <div class="feature-card fade-in">
-                <div class="feature-icon">🏙️</div>
-                <h3 class="feature-title">مدينة حقيقية</h3>
-                <p class="feature-description">مدينة مفصلة بالكامل في Roblox مع مباني حقيقية وأماكن تفاعلية للاستكشاف</p>
+                <div class="feature-icon">👥</div>
+                <h3 class="feature-title">تفاعل مميز بين اللاعبين</h3>
+                <p class="feature-description">مجتمع مليء بالنشاط والحيوية، حيث يتفاعل اللاعبون في بيئة ديناميكية تشجع على التعاون والإبداع.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">💼</div>
-                <h3 class="feature-title">وظائف متنوعة</h3>
-                <p class="feature-description">أكثر من 50 وظيفة مختلفة من الطبيب إلى رجل الأعمال إلى المجرم</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🚗</div>
-                <h3 class="feature-title">سيارات حصرية</h3>
-                <p class="feature-description">مجموعة ضخمة من السيارات والمركبات المتنوعة في Roblox</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🏠</div>
-                <h3 class="feature-title">عقارات للبيع</h3>
-                <p class="feature-description">اشترِ منزلك الخاص أو شقة أو حتى فيلا فاخرة في أفضل الأحياء</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">👮‍♂️</div>
-                <h3 class="feature-title">نظام شرطة متطور</h3>
-                <p class="feature-description">نظام شرطة واقعي مع دوريات وتحقيقات وقضايا جنائية</p>
+                <div class="feature-icon">⚖️</div>
+                <h3 class="feature-title">نظام رقابة منصف</h3>
+                <p class="feature-description">قوانين واضحة ومنظمة يسهل فهمها على كل الأعضاء، مع نظام رقابة يضمن العدالة للجميع.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">🎭</div>
-                <h3 class="feature-title">أحداث مستمرة</h3>
-                <p class="feature-description">فعاليات وأحداث يومية تجعل التجربة مثيرة ومتجددة</p>
+                <h3 class="feature-title">تجربة رول بلاي واقعية</h3>
+                <p class="feature-description">نظام يجمع بين الواقعية والمتعة في كل التفاصيل، مع إمكانيات لا حدود لها للعب الأدوار.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Jobs Section -->
-    <section id="jobs" class="jobs">
-        <h2 class="section-title">الوظائف المتاحة</h2>
-        <div class="jobs-grid">
-            <div class="job-card fade-in">
-                <div class="job-icon">👮‍♂️</div>
-                <h3>شرطي</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">🚑</div>
-                <h3>طبيب</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">👨‍💼</div>
-                <h3>رجل أعمال</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">🚖</div>
-                <h3>سائق تاكسي</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">🔧</div>
-                <h3>ميكانيكي</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">🏪</div>
-                <h3>صاحب متجر</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">📺</div>
-                <h3>صحفي</h3>
-            </div>
-            <div class="job-card fade-in">
-                <div class="job-icon">💰</div>
-                <h3>محاسب</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rules Section -->
-    <section id="rules" class="rules">
-        <h2 class="section-title">قوانين السيرفر</h2>
-        <div class="rules-container">
-            <div class="rule-item fade-in">
-                <h3>🚫 عدم التخريب</h3>
-                <p>ممنوع التخريب أو إفساد تجربة اللاعبين الآخرين</p>
-            </div>
-            <div class="rule-item fade-in">
-                <h3>🎭 اللعب بالشخصية</h3>
-                <p>يجب الالتزام بشخصيتك والتصرف بواقعية</p>
-            </div>
-            <div class="rule-item fade-in">
-                <h3>💬 الاحترام المتبادل</h3>
-                <p>احترم جميع اللاعبين وتجنب السب والشتم</p>
-            </div>
-            <div class="rule-item fade-in">
-                <h3>🚗 القيادة الآمنة</h3>
-                <p>قد بحذر واتبع قوانين المرور</p>
-            </div>
-            <div class="rule-item fade-in">
-                <h3>⚖️ العدالة</h3>
-                <p>لا تستغل الأخطاء أو تستخدم الغش</p>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">تنوع كبير في الوظائف والمشاريع</h3>
+                <p class="feature-description">مجالات متعددة تمنحك حرية الاختيار والتجربة، من الأعمال التجارية إلى المهن المتخصصة.</p>
             </div>
         </div>
     </section>
@@ -642,24 +442,12 @@
                 <ul>
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#features">المميزات</a></li>
-                    <li><a href="#jobs">الوظائف</a></li>
-                    <li><a href="#rules">القوانين</a></li>
-                    <li><a href="https://salehddev.github.io/Legesty.City.Electronic-test/" target="_blank">الاختبار الإلكتروني</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>تواصل معنا</h3>
-                <ul>
-                    <li><a href="#">Discord</a></li>
-                    <li><a href="#">تويتر</a></li>
-                    <li><a href="#">يوتيوب</a></li>
-                    <li><a href="#">انستقرام</a></li>
+                    <li><a href="#discord">ديسكورد</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>معلومات السيرفر</h3>
                 <ul>
-                    <li>IP: 127.0.0.1:30120</li>
                     <li>اللاعبين: 128/128</li>
                     <li>الحالة: متصل</li>
                 </ul>
@@ -717,36 +505,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             handleScrollAnimations();
-            
-            // Exam link functionality
-            const examLink = document.getElementById('exam-link');
-            examLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.open('https://salehddev.github.io/Legesty.City.Electronic-test/', '_blank');
-            });
-            
-            // Update stats with animation
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const finalNumber = stat.textContent;
-                const isPlus = finalNumber.includes('+');
-                const isStar = finalNumber.includes('★');
-                const isSlash = finalNumber.includes('/');
-                
-                if (!isPlus && !isStar && !isSlash) {
-                    let currentNumber = 0;
-                    const increment = parseInt(finalNumber) / 100;
-                    const timer = setInterval(() => {
-                        currentNumber += increment;
-                        if (currentNumber >= parseInt(finalNumber)) {
-                            stat.textContent = finalNumber;
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(currentNumber);
-                        }
-                    }, 20);
-                }
-            });
         });
 
         window.addEventListener('scroll', handleScrollAnimations);
