@@ -568,8 +568,16 @@
         }
 
         .item-icon {
-            font-size: 3rem;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
             margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
             color: #4facfe;
         }
 
@@ -602,6 +610,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .buy-btn:hover {
@@ -633,105 +643,6 @@
         .store-feature h3 {
             margin-bottom: 0.5rem;
             color: #4facfe;
-        }
-
-        .store-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .store-modal-content {
-            background: linear-gradient(135deg, #0a1a2a, #1a2a3a);
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            border: 2px solid #4facfe;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #4facfe;
-            color: #0a1a2a;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-            background: #00f2fe;
-        }
-
-        .modal-title {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #4facfe;
-            font-size: 1.8rem;
-        }
-
-        .modal-description {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .modal-price {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #00f2fe;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .modal-btn {
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #4facfe;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-btn.confirm {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a1a2a;
-        }
-
-        .modal-btn.cancel {
-            background: transparent;
-            color: #4facfe;
-        }
-
-        .modal-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
         }
     </style>
 </head>
@@ -860,47 +771,70 @@
         <h2 class="section-title">متجر ليجستي سيتي</h2>
         <div class="store-container">
             <div class="store-grid">
+                <!-- مقابلة فورية -->
                 <div class="store-item">
-                    <div class="item-icon">🚗</div>
+                    <div class="item-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="item-title">مقابلة فورية</h3>
+                    <p class="item-description">انضم الآن واحصل على فرصة الدخول للسيرفر مباشرة</p>
+                    <div class="item-price">$100,000</div>
+                    <a href="https://www.roblox.com/game-pass/1433005651/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                </div>
+                
+                <!-- بيت خاص -->
+                <div class="store-item">
+                    <div class="item-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="item-title">بيت خاص</h3>
+                    <p class="item-description">امتلك منزلك الخاص داخل المدينة وعيش التجربة بطريقتك</p>
+                    <div class="item-price">$500,000</div>
+                    <a href="https://www.roblox.com/game-pass/1535469582/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                </div>
+                
+                <!-- فك الباند -->
+                <div class="store-item">
+                    <div class="item-icon">
+                        <i class="fas fa-unlock"></i>
+                    </div>
+                    <h3 class="item-title">فك الباند</h3>
+                    <p class="item-description">قم بفك الحظر عن حسابك واستعد دخولك إلى السيرفر</p>
+                    <div class="item-price">$200,000</div>
+                    <a href="https://www.roblox.com/game-pass/1477829644/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                </div>
+                
+                <!-- مشروع عام -->
+                <div class="store-item">
+                    <div class="item-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="item-title">مشروع عام</h3>
+                    <p class="item-description">ابدأ مشروعك التجاري الخاص وحقق طموحك داخل المدينة</p>
+                    <div class="item-price">$750,000</div>
+                    <a href="https://www.roblox.com/game-pass/1477541653/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                </div>
+                
+                <!-- سيارة فاخرة -->
+                <div class="store-item">
+                    <div class="item-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
                     <h3 class="item-title">سيارة فاخرة</h3>
                     <p class="item-description">سيارة رياضية فاخرة بمواصفات عالية وأداء متميز</p>
-                    <div class="item-price">$500,000</div>
-                    <button class="buy-btn" data-item="سيارة فاخرة" data-price="500000">شراء الآن</button>
+                    <div class="item-price">$300,000</div>
+                    <a href="https://www.roblox.com/games/121442357510404/Legesty-City-Cfw" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
+                
+                <!-- رتبة VIP -->
                 <div class="store-item">
-                    <div class="item-icon">🏠</div>
-                    <h3 class="item-title">فيلا فاخرة</h3>
-                    <p class="item-description">فيلا فاخرة بمساحة كبيرة وتصميم عصري مع إطلالة رائعة</p>
-                    <div class="item-price">$1,200,000</div>
-                    <button class="buy-btn" data-item="فيلا فاخرة" data-price="1200000">شراء الآن</button>
-                </div>
-                <div class="store-item">
-                    <div class="item-icon">🚁</div>
-                    <h3 class="item-title">هليكوبتر</h3>
-                    <p class="item-description">هليكوبتر شخصية للتنقل السريع بين أرجاء المدينة</p>
-                    <div class="item-price">$2,500,000</div>
-                    <button class="buy-btn" data-item="هليكوبتر" data-price="2500000">شراء الآن</button>
-                </div>
-                <div class="store-item">
-                    <div class="item-icon">💼</div>
-                    <h3 class="item-title">عمل تجاري</h3>
-                    <p class="item-description">بدء عمل تجاري خاص بك مع دعم كامل من الإدارة</p>
-                    <div class="item-price">$800,000</div>
-                    <button class="buy-btn" data-item="عمل تجاري" data-price="800000">شراء الآن</button>
-                </div>
-                <div class="store-item">
-                    <div class="item-icon">👔</div>
+                    <div class="item-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
                     <h3 class="item-title">رتبة VIP</h3>
                     <p class="item-description">رتبة VIP مع مزايا حصرية وأولوية في الخدمات</p>
-                    <div class="item-price">$300,000</div>
-                    <button class="buy-btn" data-item="رتبة VIP" data-price="300000">شراء الآن</button>
-                </div>
-                <div class="store-item">
-                    <div class="item-icon">🎨</div>
-                    <h3 class="item-title">تخصيص شخصي</h3>
-                    <p class="item-description">تخصيص كامل للشخصية مع إضافات حصرية</p>
-                    <div class="item-price">$150,000</div>
-                    <button class="buy-btn" data-item="تخصيص شخصي" data-price="150000">شراء الآن</button>
+                    <div class="item-price">$400,000</div>
+                    <a href="https://www.roblox.com/games/121442357510404/Legesty-City-Cfw" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
             </div>
 
@@ -972,20 +906,6 @@
         </div>
     </footer>
 
-    <!-- نافذة تأكيد الشراء -->
-    <div class="store-modal" id="purchaseModal">
-        <div class="store-modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-            <h2 class="modal-title">تأكيد الشراء</h2>
-            <p class="modal-description" id="modalItemDesc">أنت على وشك شراء:</p>
-            <div class="modal-price" id="modalItemPrice">$0</div>
-            <div class="modal-buttons">
-                <button class="modal-btn confirm" id="confirmPurchase">تأكيد الشراء</button>
-                <button class="modal-btn cancel" id="cancelPurchase">إلغاء</button>
-            </div>
-        </div>
-    </div>
-
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1014,49 +934,6 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
-
-            // متجر ليجستي سيتي
-            const buyButtons = document.querySelectorAll('.buy-btn');
-            const modal = document.getElementById('purchaseModal');
-            const closeModal = document.getElementById('closeModal');
-            const cancelPurchase = document.getElementById('cancelPurchase');
-            const confirmPurchase = document.getElementById('confirmPurchase');
-            const modalItemDesc = document.getElementById('modalItemDesc');
-            const modalItemPrice = document.getElementById('modalItemPrice');
-
-            let selectedItem = null;
-            let selectedPrice = null;
-
-            buyButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    selectedItem = this.getAttribute('data-item');
-                    selectedPrice = this.getAttribute('data-price');
-                    
-                    modalItemDesc.textContent = `أنت على وشك شراء: ${selectedItem}`;
-                    modalItemPrice.textContent = `$${parseInt(selectedPrice).toLocaleString()}`;
-                    
-                    modal.style.display = 'flex';
-                });
-            });
-
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-
-            cancelPurchase.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-
-            confirmPurchase.addEventListener('click', function() {
-                alert(`تم شراء ${selectedItem} بنجاح! سيتم إضافته إلى حسابك قريباً.`);
-                modal.style.display = 'none';
-            });
-
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
         });
 
         window.addEventListener('scroll', function() {
