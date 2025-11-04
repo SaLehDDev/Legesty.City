@@ -228,11 +228,35 @@
             flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 1rem 2rem;
+        /* زر ابدأ اللعب الآن الأزرق الكامل */
+        .play-now-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: #0a1a2a;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(79, 172, 254, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-now-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(79, 172, 254, 0.7);
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+        }
+
+        /* زر متجر ليجستي سيتي */
+        .store-btn {
+            padding: 1.2rem 2.5rem;
             border: 2px solid #4facfe;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -240,126 +264,13 @@
             display: inline-block;
             background: transparent;
             color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
-        .btn:hover {
+        .store-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
-        }
-
-        /* تصميم زر ابدأ الآن المطابق للصورة */
-        .arabic-card {
-            background: #000;
-            border: 2px solid #fff;
-            border-radius: 8px;
-            padding: 30px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            margin: 2rem auto;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-
-        .arabic-header {
-            margin-bottom: 30px;
-        }
-
-        .arabic-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .arabic-logo-circle {
-            width: 60px;
-            height: 60px;
-            background-color: #000;
-            border: 2px solid #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .arabic-logo-star {
-            width: 35px;
-            height: 35px;
-            background-color: #fff;
-            clip-path: polygon(
-                50% 0%,
-                61% 35%,
-                98% 35%,
-                68% 57%,
-                79% 91%,
-                50% 70%,
-                21% 91%,
-                32% 57%,
-                2% 35%,
-                39% 35%
-            );
-        }
-
-        .arabic-logo-text {
-            color: #fff;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .arabic-title {
-            font-size: 32px;
-            font-weight: bold;
-            color: #fff;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .arabic-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .arabic-menu-item {
-            padding: 15px 10px;
-            font-size: 20px;
-            color: #fff;
-            border-bottom: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .arabic-menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .arabic-menu-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding-right: 15px;
-        }
-
-        /* زر ابدأ الآن الأزرق */
-        .start-now-btn {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a1a2a;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
-        }
-
-        .start-now-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.6);
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            background: rgba(79, 172, 254, 0.1);
         }
 
         .stats {
@@ -738,6 +649,11 @@
             .hero p {
                 font-size: 1.2rem;
             }
+            
+            .play-now-btn, .store-btn {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
         }
 
         .particles {
@@ -891,26 +807,9 @@
             <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=690acafd&is=6909797d&hm=a6e56cacb9e0a53ad9035f6bdba180d6d1076a1b61ad3b36d29d62134b0a6021&" alt="Legesty City Logo" class="hero-logo">
             <h1>مرحباً بك في Legesty City</h1>
             <p>سيرفر حياة واقعية سعودي متميز - واقعية تفوق التوقعات</p>
-            
-            <!-- البطاقة العربية مع زر ابدأ الآن -->
-            <div class="arabic-card">
-                <div class="arabic-header">
-                    <div class="arabic-logo">
-                        <div class="arabic-logo-circle">
-                            <div class="arabic-logo-star"></div>
-                        </div>
-                        <div class="arabic-logo-text">الآن</div>
-                    </div>
-                    <h1 class="arabic-title">العرب الآن</h1>
-                </div>
-                
-                <div class="arabic-menu">
-                    <div class="arabic-menu-item">التفعيل</div>
-                    <div class="arabic-menu-item">الضم للديستور</div>
-                </div>
-                
-                <!-- زر ابدأ الآن الأزرق -->
-                <a href="https://www.roblox.com/games/121442357510404/Legesty-City-Cfw" target="_blank" class="start-now-btn">ابدأ الآن</a>
+            <div class="cta-buttons">
+                <a href="https://www.roblox.com/games/121442357510404/Legesty-City-Cfw" target="_blank" class="play-now-btn">ابدأ اللعب الآن</a>
+                <a href="#store" class="store-btn">متجر ليجستي سيتي</a>
             </div>
         </div>
     </section>
