@@ -14,13 +14,14 @@
         }
         body {
             font-family: 'Cairo', sans-serif;
-            background: #0a0e17;
+            background: #0a0a14;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
-        /* خلفية متدرجة فاخرة */
+        /* خلفية الكون العميق */
         body::before {
             content: '';
             position: fixed;
@@ -29,171 +30,217 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(30, 60, 114, 0.3) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(40, 80, 150, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 40% 80%, rgba(25, 45, 90, 0.25) 0%, transparent 40%),
-                linear-gradient(135deg, #0a0e17 0%, #141b2d 50%, #0a0e17 100%);
+                radial-gradient(circle at 20% 30%, rgba(30, 40, 120, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(40, 60, 180, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(25, 45, 140, 0.35) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0a14 0%, #0f1525 50%, #0a0a14 100%);
             z-index: -3;
         }
 
-        /* تأثيرات ضوئية فاخرة */
-        .light-effect {
+        /* تأثير الضباب الكوني */
+        .cosmic-fog {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(79, 172, 254, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(0, 242, 254, 0.1) 0%, transparent 25%);
+                radial-gradient(circle at 30% 20%, rgba(79, 172, 254, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 70% 80%, rgba(0, 242, 254, 0.12) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(120, 100, 255, 0.1) 0%, transparent 30%);
             z-index: -2;
-            animation: pulseLight 8s ease-in-out infinite alternate;
+            opacity: 0.7;
+            animation: fogMove 20s ease-in-out infinite alternate;
         }
 
-        @keyframes pulseLight {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.7; }
+        @keyframes fogMove {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            25% { transform: translate(-30px, 20px) scale(1.05); opacity: 0.6; }
+            50% { transform: translate(20px, -30px) scale(1.1); opacity: 0.7; }
+            75% { transform: translate(-20px, -20px) scale(1.05); opacity: 0.6; }
+            100% { transform: translate(30px, 30px) scale(1); opacity: 0.5; }
         }
 
-        /* أشكال هندسية متحركة */
-        .geometric-bg {
+        /* شبكة النجوم */
+        .starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
-            overflow: hidden;
+            opacity: 0.6;
         }
 
-        .geometric-shape {
+        .star {
             position: absolute;
-            border: 2px solid rgba(79, 172, 254, 0.3);
-            animation: float 20s linear infinite;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
         }
 
-        .shape-1 {
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* أشكال هندسية كونية */
+        .cosmic-geometry {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .cosmic-shape {
+            position: absolute;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.5));
+            animation: cosmicFloat 25s linear infinite;
+        }
+
+        .cosmic-1 {
+            width: 500px;
+            height: 500px;
+            top: -150px;
+            left: -150px;
+            border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
+            animation-delay: 0s;
+            border-color: rgba(79, 172, 254, 0.6);
+        }
+
+        .cosmic-2 {
             width: 400px;
             height: 400px;
-            top: -100px;
-            left: -100px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 300px;
-            height: 300px;
             bottom: -100px;
             right: 10%;
-            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-            animation-delay: 5s;
+            border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
+            animation-delay: 8s;
+            border-color: rgba(0, 242, 254, 0.6);
         }
 
-        .shape-3 {
-            width: 250px;
-            height: 250px;
-            top: 40%;
-            left: 80%;
-            border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-            animation-delay: 10s;
+        .cosmic-3 {
+            width: 350px;
+            height: 350px;
+            top: 30%;
+            left: 75%;
+            border-radius: 30% 70% 50% 50% / 30% 30% 70% 70%;
+            animation-delay: 15s;
+            border-color: rgba(120, 100, 255, 0.6);
         }
 
-        @keyframes float {
+        @keyframes cosmicFloat {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-color: rgba(79, 172, 254, 0.6);
             }
             25% {
-                transform: translate(20px, -20px) rotate(90deg);
+                transform: translate(40px, -40px) rotate(90deg) scale(1.1);
+                border-color: rgba(0, 242, 254, 0.6);
             }
             50% {
-                transform: translate(0, -40px) rotate(180deg);
+                transform: translate(-30px, -60px) rotate(180deg) scale(1.2);
+                border-color: rgba(120, 100, 255, 0.6);
             }
             75% {
-                transform: translate(-20px, -20px) rotate(270deg);
+                transform: translate(-40px, -30px) rotate(270deg) scale(1.1);
+                border-color: rgba(0, 242, 254, 0.6);
             }
         }
 
-        /* الهيدر الفاخر */
+        /* الهيدر الكوني الفاخر */
         .header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 23, 0.9);
-            backdrop-filter: blur(15px);
+            background: linear-gradient(180deg, rgba(10, 10, 20, 0.98) 0%, rgba(10, 10, 20, 0.85) 100%);
+            backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(79, 172, 254, 0.3);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 3rem;
+            padding: 0 4rem;
         }
 
         .logo {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(79, 172, 254, 0.7);
-            letter-spacing: 1px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1.5rem;
             position: relative;
+            text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
         }
 
-        .logo::before {
+        .logo::after {
             content: '';
             position: absolute;
             width: 100%;
             height: 3px;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            background: linear-gradient(90deg, #4facfe, #00f2fe, #8a2be2);
             border-radius: 2px;
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.5);
         }
 
         .logo-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 15px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #8a2be2 100%);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            animation: logoGlow 3s ease-in-out infinite alternate;
+            font-size: 2.2rem;
+            box-shadow: 0 0 40px rgba(79, 172, 254, 0.6);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            animation: logoPulse 3s ease-in-out infinite alternate;
         }
 
-        @keyframes logoGlow {
-            0% { box-shadow: 0 0 20px rgba(79, 172, 254, 0.5); }
-            100% { box-shadow: 0 0 40px rgba(79, 172, 254, 0.8); }
+        @keyframes logoPulse {
+            0% { 
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 0 30px rgba(79, 172, 254, 0.6);
+            }
+            100% { 
+                transform: scale(1.05) rotate(5deg);
+                box-shadow: 0 0 60px rgba(79, 172, 254, 0.9);
+            }
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .nav-item a {
             color: #ffffff;
             text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            font-weight: 700;
             position: relative;
             overflow: hidden;
+            background: rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.3);
         }
 
         .nav-item a::before {
@@ -203,8 +250,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.3), transparent);
+            transition: left 0.7s;
         }
 
         .nav-item a:hover::before {
@@ -212,12 +259,13 @@
         }
 
         .nav-item a:hover {
-            background: linear-gradient(45deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+            background: linear-gradient(45deg, rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+            border-color: rgba(79, 172, 254, 0.6);
         }
 
-        /* قسم البطل الفاخر */
+        /* قسم البطل الكوني */
         .hero {
             height: 100vh;
             display: flex;
@@ -225,148 +273,243 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding-top: 80px;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
+            animation: heroPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1000px;
             z-index: 2;
             position: relative;
-            padding: 3rem;
-            background: rgba(10, 14, 23, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            padding: 4rem;
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 35px;
+            border: 2px solid rgba(79, 172, 254, 0.3);
+            box-shadow: 
+                0 20px 80px rgba(0, 0, 0, 0.6),
+                inset 0 0 50px rgba(79, 172, 254, 0.1);
+            animation: contentFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes contentFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
         }
 
         .hero-logo {
-            width: 220px;
-            height: 220px;
-            margin-bottom: 2.5rem;
-            animation: floatLogo 4s ease-in-out infinite;
-            border-radius: 25px;
-            border: 3px solid rgba(79, 172, 254, 0.3);
-            box-shadow: 0 0 40px rgba(79, 172, 254, 0.4);
+            width: 280px;
+            height: 280px;
+            margin-bottom: 3rem;
+            animation: heroLogoFloat 5s ease-in-out infinite;
+            border-radius: 30px;
+            border: 4px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 
+                0 0 60px rgba(79, 172, 254, 0.5),
+                inset 0 0 40px rgba(79, 172, 254, 0.2);
+            filter: brightness(1.2);
         }
 
-        @keyframes floatLogo {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+        @keyframes heroLogoFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+                box-shadow: 0 0 60px rgba(79, 172, 254, 0.5);
+            }
+            33% { 
+                transform: translateY(-25px) rotate(2deg) scale(1.05);
+                box-shadow: 0 0 80px rgba(79, 172, 254, 0.7);
+            }
+            66% { 
+                transform: translateY(-15px) rotate(-2deg) scale(1.03);
+                box-shadow: 0 0 70px rgba(0, 242, 254, 0.6);
+            }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
             font-weight: 900;
-            letter-spacing: 2px;
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+            text-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 5px 20px rgba(79, 172, 254, 0.4); }
+            100% { text-shadow: 0 10px 40px rgba(79, 172, 254, 0.7); }
         }
 
         .hero p {
-            font-size: 1.8rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            line-height: 1.6;
+            font-size: 2.2rem;
+            margin-bottom: 4rem;
+            line-height: 1.8;
             color: #b0d4ff;
+            text-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
+            font-weight: 600;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             justify-content: center;
             flex-wrap: wrap;
+            perspective: 1000px;
         }
 
-        /* زر ابدأ اللعب الآن */
+        /* زر ابدأ اللعب الآن - ثلاثي الأبعاد */
         .play-now-btn {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a0e17;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
+            color: #0a0a14;
             border: none;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            font-weight: bold;
+            padding: 1.5rem 3.5rem;
+            border-radius: 60px;
+            font-weight: 900;
             cursor: pointer;
-            transition: all 0.4s ease;
-            font-size: 1.2rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.5rem;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+            box-shadow: 
+                0 15px 40px rgba(79, 172, 254, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            animation: btnPulse 3s ease-in-out infinite;
         }
 
-        .play-now-btn::before {
+        @keyframes btnPulse {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .play-now-btn::before, .play-now-btn::after {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
+            border-radius: 60px;
+            z-index: -1;
         }
 
-        .play-now-btn:hover::before {
-            left: 100%;
+        .play-now-btn::before {
+            background: linear-gradient(45deg, #8a2be2, #00f2fe, #4facfe);
+            filter: blur(20px);
+            opacity: 0.7;
+            animation: btnGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes btnGlow {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .play-now-btn::after {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: btnShine 3s ease-in-out infinite;
+        }
+
+        @keyframes btnShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .play-now-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.6);
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            transform: translateY(-15px) scale(1.1) rotateX(10deg);
+            box-shadow: 
+                0 25px 60px rgba(79, 172, 254, 0.7),
+                0 0 80px rgba(79, 172, 254, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            background: linear-gradient(45deg, #8a2be2, #00f2fe, #4facfe);
+            animation-play-state: paused;
         }
 
-        /* زر متجر ليجستي سيتي */
+        /* زر متجر ليجستي سيتي - ثلاثي الأبعاد */
         .store-btn {
-            padding: 1.2rem 2.5rem;
-            border: 2px solid #4facfe;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 1.5rem 3.5rem;
+            border: 3px solid transparent;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: 900;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             display: inline-block;
-            background: rgba(79, 172, 254, 0.1);
+            background: linear-gradient(45deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2), rgba(138, 43, 226, 0.2));
             color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+            backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            animation: storeBtnFloat 4s ease-in-out infinite;
+            border-image: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2) 1;
+        }
+
+        @keyframes storeBtnFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-12px) rotate(1deg); }
+            66% { transform: translateY(-8px) rotate(-1deg); }
         }
 
         .store-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.2), transparent);
-            transition: left 0.5s;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
+            border-radius: 62px;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+            filter: blur(5px);
+            opacity: 0.7;
         }
 
-        .store-btn:hover::before {
-            left: 100%;
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .store-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);
-            background: rgba(79, 172, 254, 0.2);
-            border-color: #00f2fe;
+            transform: translateY(-15px) scale(1.1) rotateX(-10deg);
+            background: linear-gradient(45deg, rgba(79, 172, 254, 0.4), rgba(0, 242, 254, 0.4), rgba(138, 43, 226, 0.4));
+            box-shadow: 
+                0 25px 60px rgba(79, 172, 254, 0.4),
+                0 0 60px rgba(0, 242, 254, 0.3);
+            animation-play-state: paused;
         }
 
-        /* قسم الإحصائيات */
+        /* قسم الإحصائيات الكوني */
         .stats {
-            padding: 6rem 2rem;
-            background: rgba(20, 27, 45, 0.8);
+            padding: 8rem 2rem;
+            background: rgba(15, 20, 35, 0.9);
             position: relative;
+            overflow: hidden;
         }
 
         .stats::before {
@@ -376,177 +519,134 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(79, 172, 254, 0.05) 50%, transparent 70%);
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(79, 172, 254, 0.08) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0, 242, 254, 0.08) 50%, transparent 70%);
             z-index: 0;
+            animation: statsBgMove 15s linear infinite;
+        }
+
+        @keyframes statsBgMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(100px) translateY(100px); }
         }
 
         .stats-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
             position: relative;
             z-index: 1;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 242, 254, 0.15), rgba(138, 43, 226, 0.15));
+            padding: 4rem 2rem;
+            border-radius: 25px;
             text-align: center;
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2) 1;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
 
         .stat-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s;
         }
 
         .stat-card:hover::before {
-            opacity: 1;
+            transform: translateX(100%);
         }
 
         .stat-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(79, 172, 254, 0.3);
-            border-color: rgba(79, 172, 254, 0.6);
+            transform: translateY(-20px) scale(1.08) rotateY(10deg);
+            box-shadow: 
+                0 30px 70px rgba(79, 172, 254, 0.4),
+                0 0 50px rgba(0, 242, 254, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
         }
 
         .stat-number {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 900;
-            color: #4facfe;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+            animation: statNumberGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes statNumberGlow {
+            0% { text-shadow: 0 0 20px rgba(79, 172, 254, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(79, 172, 254, 0.8); }
         }
 
         .stat-label {
-            font-size: 1.5rem;
-            opacity: 0.9;
+            font-size: 1.8rem;
             color: #b0d4ff;
+            text-shadow: 0 0 15px rgba(79, 172, 254, 0.3);
+            font-weight: 600;
         }
 
-        /* عناوين الأقسام */
+        /* عناوين الأقسام الكونية */
         .section-title {
             text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 4rem;
+            font-size: 4.5rem;
+            margin-bottom: 5rem;
             font-weight: 900;
             position: relative;
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 40px rgba(79, 172, 254, 0.4);
+            padding-bottom: 2rem;
         }
 
-        .section-title::before {
+        .section-title::before, .section-title::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, transparent, #4facfe, transparent);
+            background: linear-gradient(90deg, transparent, #4facfe, #00f2fe, #8a2be2, transparent);
             border-radius: 2px;
         }
 
         .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
+            width: 80px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
-            border-radius: 2px;
+            bottom: -10px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe, #8a2be2);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+            animation: titleUnderline 3s ease-in-out infinite alternate;
         }
 
-        /* جعل النص الملون يظهر */
-        .gradient-text {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline;
+        @keyframes titleUnderline {
+            0% { width: 60px; opacity: 0.8; }
+            100% { width: 120px; opacity: 1; }
         }
 
-        /* جعل القوانين تظهر بشكل أنيق */
-        .rules-modal-content {
-            background: linear-gradient(135deg, rgba(10, 14, 23, 0.95), rgba(20, 27, 45, 0.95));
-        }
-
-        /* تحسينات للشاشات الصغيرة */
-        @media (max-width: 992px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.4rem;
-            }
-            
-            .section-title {
-                font-size: 2.8rem;
-            }
-            
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-            
-            .hero-content {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .play-now-btn, .store-btn {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-            
-            .cta-buttons {
-                gap: 1rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .stat-number {
-                font-size: 3rem;
-            }
-            
-            .stat-label {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* تأثيرات الجسيمات المحسنة */
-        .particles {
+        /* تأثير الجسيمات الكونية المحسنة */
+        .cosmic-particles {
             position: fixed;
             top: 0;
             left: 0;
@@ -556,17 +656,16 @@
             z-index: -1;
         }
 
-        .particle {
+        .cosmic-particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #4facfe;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #8a2be2);
             border-radius: 50%;
-            animation: floatParticle 8s infinite linear;
-            box-shadow: 0 0 10px #4facfe;
+            filter: blur(1px);
+            animation: cosmicParticleFloat 10s infinite linear;
+            box-shadow: 0 0 15px currentColor;
         }
 
-        @keyframes floatParticle {
+        @keyframes cosmicParticleFloat {
             0% {
                 opacity: 0;
                 transform: translateY(100vh) rotate(0deg) scale(0);
@@ -579,78 +678,110 @@
             }
             100% {
                 opacity: 0;
-                transform: translateY(-100vh) rotate(360deg) scale(1);
+                transform: translateY(-100vh) rotate(720deg) scale(1.5);
             }
         }
 
-        /* تحسينات عامة للفخامة */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .energy-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #4facfe, transparent);
+            border-radius: 50%;
+            filter: blur(3px);
+            animation: energyPulse 3s infinite;
+            box-shadow: 0 0 30px #4facfe;
         }
 
-        .glow-effect {
-            box-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+        @keyframes energyPulse {
+            0%, 100% { 
+                transform: scale(0.5); 
+                opacity: 0.3;
+                box-shadow: 0 0 20px #4facfe;
+            }
+            50% { 
+                transform: scale(1.5); 
+                opacity: 1;
+                box-shadow: 0 0 50px #4facfe, 0 0 100px #00f2fe;
+            }
         }
 
-        /* تحسينات للأزرار في المتجر */
-        .buy-btn {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a0e17;
-            border: none;
-            padding: 0.9rem 1.8rem;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
+        /* تأثيرات الشهب */
+        .meteor {
+            position: fixed;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to top, transparent, #4facfe);
+            z-index: -1;
+            opacity: 0;
+            filter: blur(1px);
+        }
+
+        @keyframes meteorFall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(45deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(100vw) rotate(45deg);
+            }
+        }
+
+        /* بقية الأنماط للمحتوى... */
+        .about, .rules, .map-section, .store-section, .discord {
+            padding: 8rem 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        .buy-btn::before {
+        .about::before, .rules::before, .store-section::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
+            background: radial-gradient(circle at 30% 30%, rgba(79, 172, 254, 0.05) 0%, transparent 50%);
+            z-index: 0;
         }
 
-        .buy-btn:hover::before {
-            left: 100%;
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.8rem; }
+            .section-title { font-size: 3.5rem; }
+            .nav-menu { gap: 1.5rem; }
         }
 
-        .buy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
-        }
-
-        /* تحسينات للبطاقات */
-        .store-item, .about-feature, .rule-btn {
-            transition: all 0.4s ease;
-        }
-
-        .store-item:hover, .about-feature:hover, .rule-btn:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.2);
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.4rem; }
+            .section-title { font-size: 2.5rem; }
+            .play-now-btn, .store-btn { 
+                padding: 1.2rem 2.5rem; 
+                font-size: 1.2rem;
+            }
+            .logo { font-size: 2rem; }
+            .logo-icon { width: 50px; height: 50px; font-size: 1.5rem; }
+            .nav-container { padding: 0 1.5rem; }
+            .nav-menu { display: none; }
+            .hero-content { padding: 2rem; margin: 0 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="light-effect"></div>
-    <div class="particles" id="particles"></div>
-    <div class="geometric-bg">
-        <div class="geometric-shape shape-1"></div>
-        <div class="geometric-shape shape-2"></div>
-        <div class="geometric-shape shape-3"></div>
+    <div class="cosmic-fog"></div>
+    <div class="starfield" id="starfield"></div>
+    <div class="cosmic-geometry">
+        <div class="cosmic-shape cosmic-1"></div>
+        <div class="cosmic-shape cosmic-2"></div>
+        <div class="cosmic-shape cosmic-3"></div>
     </div>
+    <div class="cosmic-particles" id="cosmicParticles"></div>
 
     <header class="header">
         <nav class="nav-container">
@@ -673,7 +804,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=6924803d&is=69232ebd&hm=6471f8d1d81340708b9c5166f96b2443c645305e49f16d1832a0c295599ac44d&" class="hero-logo">
-            <h1>مرحباً بك في <span class="gradient-text">Legesty City</span></h1>
+            <h1>مرحباً بك في Legesty City</h1>
             <p>أول سيرفر عربي يقدم جودة رول بلاي عالية داخل روبلوكس</p>
             <div class="cta-buttons">
                 <a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw" target="_blank" class="play-now-btn">ابدأ اللعب الآن</a>
@@ -831,141 +962,101 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Legesty City</h3>
-                <p>أفضل سيرفر الحياة الواقعية في Roblox. انضم إلينا وعش تجربة لا تُنسى.</p>
-            </div>
-            <div class="footer-section">
-                <h3>روابط سريعة</h3>
-                <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#about">عن السيرفر</a></li>
-                    <li><a href="#rules">قوانين السيرفر</a></li>
-                    <li><a href="#map">خريطة السيرفر</a></li>
-                    <li><a href="#store">متجر السيرفر</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>تواصل معنا</h3>
-                <ul>
-                    <li><a href="https://discord.gg/fm4">Discord</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>معلومات السيرفر</h3>
-                <ul>
-                    <li>أعضاء السيرفر: 4328</li>
-                    <li>الحالة: متصل</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Legesty City. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <!-- نوافذ القوانين المنبثقة (تم الحفاظ عليها من التصميم الأصلي) -->
-    <div class="rules-modal" id="discordRulesModal">
-        <div class="rules-modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-title"><i class="fab fa-discord"></i> قوانين الديسكورد</h2>
-            <div class="modal-rules-list">
-                <div class="modal-rule-item">
-                    <h4>الاحترام</h4>
-                    <p>احترام الجميع وعدم السب وإهانة أي شخص مهما كانت الظروف</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>الروابط</h4>
-                    <p>عدم وضع روابط دعوات لسيرفرات أخرى</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>المواضيع الحساسة</h4>
-                    <p>عدم الخوض بالأمور الدينية أو السياسية</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>تعدد الحسابات</h4>
-                    <p>ممنوع امتلاك أكثر من حساب ديسكورد</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>انتحال الشخصيات</h4>
-                    <p>يمنع انتحال الشخصيات الإدارية</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>السبام</h4>
-                    <p>يمنع السبام في الشات</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="rules-modal" id="nlrRulesModal">
-        <div class="rules-modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-title"><i class="fas fa-heartbeat"></i> قوانين الحياة الجديدة - NLR</h2>
-            <div class="modal-rules-list">
-                <div class="modal-rule-item">
-                    <h4>الإغماء الكامل</h4>
-                    <p>في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة أو فعل أي شيء</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>الإنعاش من المسعفين</h4>
-                    <p>في حال تم إسقاطك وإنعاشك من قبل مسعفين تستطيع تذكر جميع الأحداث</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>الإبرة في العيادة</h4>
-                    <p>في حال تم إعطاؤك إبرة في العيادة الخاصة لا تستطيع تذكر أي شيء حصل لك</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="rules-modal" id="otherRulesModal">
-        <div class="rules-modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-title"><i class="fas fa-gavel"></i> قوانين أخرى</h2>
-            <div class="modal-rules-list">
-                <div class="modal-rule-item">
-                    <h4>الباور جيمنج - PowerGaming</h4>
-                    <p>استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>الخوف على الحياة - NVL</h4>
-                    <p>عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>الميتا جيمنج - Metagaming</h4>
-                    <p>أي معلومة تحصل عليها من خارج المدينة (بث، ديسكورد، يوتيوب) تعتبر مخالفة</p>
-                </div>
-                <div class="modal-rule-item">
-                    <h4>القتل العشوائي - RDM</h4>
-                    <p>قتل الأشخاص دون سبب أو تهديد أو بصورة عشوائية يعتبر ممنوع</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // تحسينات JavaScript للفخامة
-        document.addEventListener('DOMContentLoaded', function() {
-            // إنشاء جسيمات متحركة
-            function createParticles() {
-                const particlesContainer = document.getElementById('particles');
-                for (let i = 0; i < 80; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                    particle.style.animationDelay = Math.random() * 5 + 's';
-                    particle.style.opacity = Math.random() * 0.7 + 0.3;
-                    particlesContainer.appendChild(particle);
-                }
+        // إنشاء النجوم
+        function createStars() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                
+                starfield.appendChild(star);
+            }
+        }
+        
+        // إنشاء جسيمات كونية متطورة
+        function createCosmicParticles() {
+            const particlesContainer = document.getElementById('cosmicParticles');
+            const particleCount = 150;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'cosmic-particle';
+                
+                const size = Math.random() * 6 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                
+                particle.style.animationDuration = `${Math.random() * 8 + 4}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                const colors = ['#4facfe', '#00f2fe', '#8a2be2'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = `radial-gradient(circle, ${color}, transparent)`;
+                particle.style.boxShadow = `0 0 20px ${color}`;
+                
+                particlesContainer.appendChild(particle);
             }
             
-            createParticles();
+            // إضافة جسيمات طاقة
+            const energyCount = 30;
+            for (let i = 0; i < energyCount; i++) {
+                const energy = document.createElement('div');
+                energy.className = 'energy-particle';
+                
+                energy.style.left = `${Math.random() * 100}%`;
+                energy.style.top = `${Math.random() * 100}%`;
+                
+                energy.style.animationDuration = `${Math.random() * 4 + 2}s`;
+                energy.style.animationDelay = `${Math.random() * 3}s`;
+                
+                particlesContainer.appendChild(energy);
+            }
+        }
+        
+        // إنشاء الشهب
+        function createMeteors() {
+            const particlesContainer = document.getElementById('cosmicParticles');
+            const meteorCount = 5;
             
-            // تأثير التمرير السلس للروابط
+            for (let i = 0; i < meteorCount; i++) {
+                const meteor = document.createElement('div');
+                meteor.className = 'meteor';
+                
+                meteor.style.left = `${Math.random() * 30}%`;
+                meteor.style.top = `${Math.random() * 20}%`;
+                
+                meteor.style.animation = `meteorFall ${Math.random() * 3 + 2}s linear infinite`;
+                meteor.style.animationDelay = `${Math.random() * 10}s`;
+                
+                meteor.style.width = `${Math.random() * 3 + 1}px`;
+                meteor.style.height = `${Math.random() * 150 + 100}px`;
+                
+                particlesContainer.appendChild(meteor);
+            }
+        }
+        
+        // تأثيرات التمرير السلس
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            createCosmicParticles();
+            createMeteors();
+            
+            // تأثير التمرير للروابط
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -982,59 +1073,30 @@
             // تأثير التمرير على الهيدر
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('.header');
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(10, 14, 23, 0.98)';
-                    header.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.6)';
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition > 100) {
+                    header.style.background = 'linear-gradient(180deg, rgba(10, 10, 20, 0.99) 0%, rgba(10, 10, 20, 0.95) 100%)';
+                    header.style.boxShadow = '0 15px 50px rgba(0, 0, 0, 0.8)';
+                    header.style.backdropFilter = 'blur(25px)';
                 } else {
-                    header.style.background = 'rgba(10, 14, 23, 0.9)';
-                    header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.5)';
+                    header.style.background = 'linear-gradient(180deg, rgba(10, 10, 20, 0.98) 0%, rgba(10, 10, 20, 0.85) 100%)';
+                    header.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.7)';
+                    header.style.backdropFilter = 'blur(20px)';
                 }
-            });
-            
-            // التحكم في نوافذ القوانين المنبثقة
-            const discordRulesBtn = document.getElementById('discordRulesBtn');
-            const nlrRulesBtn = document.getElementById('nlrRulesBtn');
-            const otherRulesBtn = document.getElementById('otherRulesBtn');
-            
-            const discordRulesModal = document.getElementById('discordRulesModal');
-            const nlrRulesModal = document.getElementById('nlrRulesModal');
-            const otherRulesModal = document.getElementById('otherRulesModal');
-            
-            const closeButtons = document.querySelectorAll('.close-modal');
-            
-            discordRulesBtn.addEventListener('click', function() {
-                discordRulesModal.style.display = 'flex';
-            });
-            
-            nlrRulesBtn.addEventListener('click', function() {
-                nlrRulesModal.style.display = 'flex';
-            });
-            
-            otherRulesBtn.addEventListener('click', function() {
-                otherRulesModal.style.display = 'flex';
-            });
-            
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    discordRulesModal.style.display = 'none';
-                    nlrRulesModal.style.display = 'none';
-                    otherRulesModal.style.display = 'none';
+                
+                // تأثير parallax للنجوم
+                const stars = document.querySelectorAll('.star');
+                const scrollSpeed = scrollPosition * 0.5;
+                
+                stars.forEach(star => {
+                    const originalTop = parseFloat(star.dataset.originalTop) || Math.random() * 100;
+                    star.dataset.originalTop = originalTop;
+                    star.style.top = `${(originalTop + scrollSpeed * 0.01) % 100}%`;
                 });
             });
             
-            window.addEventListener('click', function(event) {
-                if (event.target === discordRulesModal) {
-                    discordRulesModal.style.display = 'none';
-                }
-                if (event.target === nlrRulesModal) {
-                    nlrRulesModal.style.display = 'none';
-                }
-                if (event.target === otherRulesModal) {
-                    otherRulesModal.style.display = 'none';
-                }
-            });
-            
-            // تأثيرات عند التمرير
+            // تأثيرات الظهور عند التمرير
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -100px 0px'
@@ -1044,29 +1106,48 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                        entry.target.style.filter = 'blur(0)';
                     }
                 });
             }, observerOptions);
             
-            // إضافة تأثيرات للعناصر عند الظهور
+            // تطبيق تأثيرات الظهور على العناصر
             document.querySelectorAll('.stat-card, .about-feature, .store-item, .rule-btn').forEach(el => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                el.style.transform = 'translateY(50px) scale(0.9)';
+                el.style.filter = 'blur(5px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease';
                 observer.observe(el);
             });
             
-            // إضافة تأثيرات للعناصر الرئيسية
+            // إضافة تأثيرات لشعار البطل
             const heroContent = document.querySelector('.hero-content');
             heroContent.style.opacity = '0';
-            heroContent.style.transform = 'translateY(50px)';
-            heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
+            heroContent.style.transform = 'translateY(100px) scale(0.8)';
+            heroContent.style.filter = 'blur(10px)';
+            heroContent.style.transition = 'opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease';
             
             setTimeout(() => {
                 heroContent.style.opacity = '1';
-                heroContent.style.transform = 'translateY(0)';
+                heroContent.style.transform = 'translateY(0) scale(1)';
+                heroContent.style.filter = 'blur(0)';
             }, 300);
+            
+            // تحريك الجسيمات مع الماوس
+            document.addEventListener('mousemove', function(e) {
+                const particles = document.querySelectorAll('.cosmic-particle, .energy-particle');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                particles.forEach(particle => {
+                    const speed = 0.5;
+                    const x = (mouseX - 0.5) * speed;
+                    const y = (mouseY - 0.5) * speed;
+                    
+                    particle.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
         });
     </script>
 </body>
