@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legesty City - متجر ليجستي سيتي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,14 +12,31 @@
             padding: 0;
             box-sizing: border-box;
         }
+        :root {
+            --primary: #6c63ff;
+            --primary-light: #a8a4ff;
+            --primary-dark: #554fd8;
+            --secondary: #ff6584;
+            --accent: #36d1dc;
+            --bg-dark: #0f1525;
+            --bg-darker: #0a0f1a;
+            --bg-light: #1a2332;
+            --text: #f0f4ff;
+            --text-light: #b8c1ec;
+            --card-bg: rgba(26, 35, 50, 0.7);
+            --gradient: linear-gradient(135deg, #6c63ff, #36d1dc);
+            --gradient-dark: linear-gradient(135deg, #554fd8, #2aa9b5);
+        }
         body {
             font-family: 'Cairo', 'Arial', sans-serif;
-            background: #0a1a2a;
-            color: #ffffff;
+            background: var(--bg-darker);
+            color: var(--text);
             overflow-x: hidden;
             position: relative;
+            line-height: 1.6;
         }
 
+        /* خلفية محسنة مع تأثيرات أكثر سلاسة */
         body::before {
             content: '';
             position: fixed;
@@ -28,101 +45,97 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(135deg, rgba(10, 26, 42, 0.6) 0%, transparent 50%),
-                linear-gradient(225deg, rgba(5, 40, 80, 0.6) 0%, transparent 50%),
-                linear-gradient(315deg, rgba(8, 60, 120, 0.5) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(108, 99, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(54, 209, 220, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 40% 40%, rgba(255, 101, 132, 0.08) 0%, transparent 40%);
             z-index: -3;
         }
 
-        body::after {
-            content: '';
+        /* شبكة هندسية خفيفة */
+        .grid-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-image: 
-                polygon(50% 0%, 0% 100%, 100% 100%),
-                linear-gradient(120deg, transparent 30%, rgba(10, 50, 100, 0.3) 30%, rgba(10, 50, 100, 0.3) 35%, transparent 35%),
-                linear-gradient(240deg, transparent 30%, rgba(20, 80, 160, 0.2) 30%, rgba(20, 80, 160, 0.2) 35%, transparent 35%);
-            background-size: 100% 100%, 200px 200px, 180px 180px;
-            animation: moveShapes 20s linear infinite;
+                linear-gradient(rgba(108, 99, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(108, 99, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -2;
-            opacity: 0.6;
+            opacity: 0.3;
         }
 
-        @keyframes moveShapes {
-            0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
-            100% { background-position: 0% 0%, 200px 200px, -180px -180px; }
-        }
-
-        .geometric-bg {
+        /* أشكال هندسية عائمة */
+        .floating-shapes {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
+            overflow: hidden;
         }
 
-        .geometric-shape {
+        .shape {
             position: absolute;
-            border: 2px solid #4facfe;
-            animation: float 15s ease-in-out infinite;
+            background: rgba(108, 99, 255, 0.1);
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            border-radius: 20px;
+            animation: float 20s infinite ease-in-out;
         }
 
         .shape-1 {
             width: 300px;
             height: 300px;
             top: 10%;
-            left: 5%;
-            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            right: 5%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             animation-delay: 0s;
         }
 
         .shape-2 {
             width: 200px;
             height: 200px;
-            top: 60%;
-            right: 10%;
-            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-            animation-delay: 2s;
+            bottom: 15%;
+            left: 10%;
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            animation-delay: 5s;
         }
 
         .shape-3 {
-            width: 250px;
-            height: 250px;
-            bottom: 15%;
-            left: 15%;
-            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
-            animation-delay: 4s;
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 15%;
+            border-radius: 50%;
+            animation-delay: 10s;
         }
 
         @keyframes float {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
             }
-            25% {
+            33% {
                 transform: translateY(-30px) rotate(5deg);
             }
-            50% {
-                transform: translateY(-60px) rotate(-5deg);
-            }
-            75% {
-                transform: translateY(-30px) rotate(3deg);
+            66% {
+                transform: translateY(20px) rotate(-5deg);
             }
         }
 
+        /* تحسينات الهيدر */
         .header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 25, 45, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 21, 37, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 2px solid #1a3a5f;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.3);
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -135,11 +148,11 @@
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            color: #4facfe;
-            text-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
-            letter-spacing: 1px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -148,77 +161,104 @@
         .logo-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #0a1a2a 0%, #1a2a3a 100%);
+            background: var(--gradient);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
-            border: 2px solid #4facfe;
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-item a {
-            color: #ffffff;
+            color: var(--text-light);
             text-decoration: none;
             padding: 0.5rem 1rem;
-            border-radius: 25px;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 1rem;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
         }
 
         .nav-item a:hover {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+            color: white;
+            background: rgba(108, 99, 255, 0.1);
         }
 
+        .nav-item a:hover::after {
+            width: calc(100% - 2rem);
+        }
+
+        /* تحسينات القسم الرئيسي */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: transparent;
             text-align: center;
             position: relative;
+            padding-top: 80px;
         }
 
         .hero-content {
             max-width: 800px;
             z-index: 2;
             position: relative;
+            padding: 2rem;
         }
 
         .hero-logo {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             margin-bottom: 2rem;
-            animation: floatLogo 4s ease-in-out infinite;
+            animation: floatLogo 6s ease-in-out infinite;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(108, 99, 255, 0.3);
         }
 
         @keyframes floatLogo {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 900;
-            letter-spacing: 2px;
-            color: #4facfe;
-            text-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -228,54 +268,70 @@
             flex-wrap: wrap;
         }
 
-        /* زر ابدأ اللعب الآن الأزرق الكامل - تم تصغيره */
         .play-now-btn {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a1a2a;
+            background: var(--gradient);
+            color: white;
             border: none;
-            padding: 0.9rem 1.8rem; /* تم تصغير الحشوة */
-            border-radius: 50px;
-            font-weight: bold;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem; /* تم تصغير حجم الخط */
+            font-size: 1.1rem;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.5); /* تم تصغير الظل */
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
         }
 
         .play-now-btn:hover {
-            transform: translateY(-3px); /* تم تصغير تأثير الرفع */
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.7);
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
         }
 
-        /* زر متجر ليجستي سيتي - تم تصغيره */
+        .play-now-btn:hover::before {
+            left: 100%;
+        }
+
         .store-btn {
-            padding: 0.9rem 1.8rem; /* تم تصغير الحشوة */
-            border: 2px solid #4facfe;
-            border-radius: 50px;
-            font-size: 1rem; /* تم تصغير حجم الخط */
-            font-weight: bold;
+            padding: 1rem 2.5rem;
+            border: 2px solid rgba(108, 99, 255, 0.5);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            background: transparent;
+            background: rgba(108, 99, 255, 0.1);
             color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .store-btn:hover {
-            transform: translateY(-3px); /* تم تصغير تأثير الرفع */
-            box-shadow: 0 6px 18px rgba(79, 172, 254, 0.4);
-            background: rgba(79, 172, 254, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            background: rgba(108, 99, 255, 0.2);
+            border-color: var(--primary);
         }
 
+        /* تحسينات الإحصائيات */
         .stats {
-            padding: 4rem 2rem;
-            background: rgba(26, 36, 56, 0.8);
+            padding: 5rem 2rem;
+            background: rgba(15, 21, 37, 0.7);
+            backdrop-filter: blur(10px);
         }
 
         .stats-container {
@@ -287,43 +343,88 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            border-color: transparent;
+        }
+
+        .stat-card:hover::before {
+            opacity: 0.1;
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #4facfe;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .stat-label {
             font-size: 1.2rem;
-            opacity: 0.8;
+            color: var(--text-light);
+        }
+
+        /* تحسينات الأقسام العامة */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
         }
 
         .about {
-            padding: 4rem 2rem;
-            background: #0a0a15;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: var(--bg-dark);
         }
 
         .about-container {
@@ -331,62 +432,64 @@
             margin: 0 auto;
         }
 
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-        }
-
         .about-text {
             max-width: 800px;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             line-height: 1.8;
-            opacity: 0.9;
+            color: var(--text-light);
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            background: rgba(26, 35, 50, 0.5);
+            border-radius: 20px;
+            border-left: 4px solid var(--primary);
         }
 
         .about-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
             width: 100%;
         }
 
         .about-feature {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            padding: 1.5rem;
-            border-radius: 15px;
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
 
         .about-feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
-            border-color: rgba(79, 172, 254, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .feature-title {
             font-size: 1.5rem;
-            color: #4facfe;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: white;
         }
 
         .feature-description {
-            font-size: 1rem;
-            color: #ffffff;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            color: var(--text-light);
         }
 
+        /* تحسينات قسم القوانين */
         .rules {
-            padding: 4rem 2rem;
-            background: rgba(22, 33, 62, 0.8);
+            background: rgba(15, 21, 37, 0.7);
         }
 
         .rules-container {
@@ -398,41 +501,62 @@
         }
 
         .rule-btn {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            border: 2px solid rgba(79, 172, 254, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            min-height: 200px;
+            gap: 1.5rem;
+            min-height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
         }
 
         .rule-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
-            border-color: rgba(79, 172, 254, 0.5);
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2));
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            border-color: transparent;
+        }
+
+        .rule-btn:hover::before {
+            opacity: 0.1;
         }
 
         .rule-btn i {
-            font-size: 3rem;
-            color: #4facfe;
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .rule-btn h3 {
             font-size: 1.8rem;
-            color: #4facfe;
+            color: white;
         }
 
+        /* تحسينات قسم الخريطة */
         .map-section {
-            padding: 4rem 2rem;
-            background: #0a0a15;
+            background: var(--bg-dark);
             text-align: center;
         }
 
@@ -440,19 +564,26 @@
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(108, 99, 255, 0.3);
         }
 
         .map-image {
             width: 100%;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid #4facfe;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
         }
 
+        .map-container:hover .map-image {
+            transform: scale(1.02);
+        }
+
+        /* تحسينات قسم المتجر */
         .store-section {
-            padding: 4rem 2rem;
-            background: rgba(15, 25, 45, 0.9);
+            background: rgba(15, 21, 37, 0.7);
         }
 
         .store-container {
@@ -463,137 +594,198 @@
         .store-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .store-item {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            border-radius: 15px;
-            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .store-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
         }
 
         .store-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.2);
-            border-color: rgba(79, 172, 254, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            border-color: transparent;
+        }
+
+        .store-item:hover::before {
+            opacity: 0.1;
         }
 
         .item-icon {
             width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            background: rgba(255, 255, 255, 0.1);
+            height: 180px;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            background: rgba(108, 99, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #4facfe;
+            font-size: 4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border: 2px solid rgba(108, 99, 255, 0.2);
         }
 
         .item-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: #4facfe;
+            color: white;
         }
 
         .item-description {
             flex-grow: 1;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
         .buy-btn {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: #0a1a2a;
+            background: var(--gradient);
+            color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: bold;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            display: inline-block;
+            display: block;
             width: 100%;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
         }
 
         .buy-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+            background: var(--gradient-dark);
         }
 
         .store-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
+            gap: 2rem;
+            margin-top: 5rem;
         }
 
         .store-feature {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 10px;
+            background: rgba(26, 35, 50, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            border-left: 4px solid #4facfe;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .store-feature:hover {
+            transform: translateY(-5px);
+            background: rgba(108, 99, 255, 0.1);
         }
 
         .store-feature i {
-            font-size: 2rem;
-            color: #4facfe;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .store-feature h3 {
-            margin-bottom: 0.5rem;
-            color: #4facfe;
+            margin-bottom: 0.8rem;
+            color: white;
+            font-size: 1.3rem;
         }
 
+        /* تحسينات قسم الديسكورد */
         .discord {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(54, 209, 220, 0.9));
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .discord::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
         }
 
         .discord-content {
             max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .discord h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
+            color: white;
+            font-weight: 900;
+        }
+
+        .discord p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .discord-btn {
-            background: #ffffff;
-            color: #1e40af;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             display: inline-block;
-            margin-top: 1rem;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .discord-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            color: var(--primary-dark);
         }
 
+        /* تحسينات الفوتر */
         .footer {
-            background: #0a0a15;
-            padding: 3rem 2rem 1rem;
-            border-top: 2px solid #4facfe;
+            background: var(--bg-darker);
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid rgba(108, 99, 255, 0.3);
         }
 
         .footer-content {
@@ -601,13 +793,32 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
-            color: #4facfe;
-            margin-bottom: 1rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .footer-section p, .footer-section ul li {
+            color: var(--text-light);
+            line-height: 1.8;
         }
 
         .footer-section ul {
@@ -615,47 +826,31 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-section ul li a {
-            color: #ffffff;
+            color: var(--text-light);
             text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.2rem 0;
         }
 
         .footer-section ul li a:hover {
-            opacity: 1;
-            color: #4facfe;
+            color: var(--primary-light);
+            transform: translateX(-5px);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(79, 172, 254, 0.3);
-            opacity: 0.6;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(108, 99, 255, 0.2);
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .play-now-btn, .store-btn {
-                padding: 0.8rem 1.5rem; /* تم تصغير الحشوة للشاشات الصغيرة */
-                font-size: 0.9rem; /* تم تصغير حجم الخط للشاشات الصغيرة */
-            }
-        }
-
+        /* جسيمات محسنة */
         .particles {
             position: fixed;
             top: 0;
@@ -668,17 +863,18 @@
 
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #4facfe;
+            width: 3px;
+            height: 3px;
+            background: var(--primary-light);
             border-radius: 50%;
-            animation: floatParticle 6s infinite linear;
+            animation: floatParticle 8s infinite linear;
+            box-shadow: 0 0 10px var(--primary-light);
         }
 
         @keyframes floatParticle {
             0% {
                 opacity: 0;
-                transform: translateY(100vh) scale(0);
+                transform: translateY(100vh) translateX(0) scale(0);
             }
             10% {
                 opacity: 1;
@@ -688,11 +884,11 @@
             }
             100% {
                 opacity: 0;
-                transform: translateY(-100vh) scale(1);
+                transform: translateY(-100vh) translateX(100px) scale(1);
             }
         }
 
-        /* نافذة القوانين المنبثقة */
+        /* تحسينات النوافذ المنبثقة */
         .rules-modal {
             display: none;
             position: fixed;
@@ -700,88 +896,168 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .rules-modal-content {
-            background: linear-gradient(135deg, #0a1a2a, #1a2a3a);
-            border-radius: 15px;
+            background: var(--card-bg);
+            border-radius: 20px;
             width: 90%;
             max-width: 800px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             position: relative;
-            border: 2px solid #4facfe;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            backdrop-filter: blur(20px);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #4facfe;
-            color: #0a1a2a;
+            top: 20px;
+            left: 20px;
+            background: var(--gradient);
+            color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            z-index: 10;
         }
 
         .close-modal:hover {
-            transform: rotate(90deg);
-            background: #00f2fe;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.5);
         }
 
         .modal-title {
             text-align: center;
-            margin-bottom: 1.5rem;
-            color: #4facfe;
-            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
 
         .modal-rules-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .modal-rule-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 1.2rem;
-            border-radius: 10px;
-            border-right: 4px solid #4facfe;
+            padding: 1.8rem;
+            border-radius: 15px;
+            border-right: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .modal-rule-item:hover {
+            background: rgba(108, 99, 255, 0.1);
+            transform: translateX(-5px);
         }
 
         .modal-rule-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #00f2fe;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: white;
         }
 
         .modal-rule-item p {
-            font-size: 1rem;
-            opacity: 0.9;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .stat-card, .about-feature, .rule-btn, .store-item {
+                padding: 1.8rem 1.5rem;
+            }
+            
+            .play-now-btn, .store-btn, .buy-btn, .discord-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+            }
+            
+            .rules-modal-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .modal-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-dark);
         }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
-    <div class="geometric-bg">
-        <div class="geometric-shape shape-1"></div>
-        <div class="geometric-shape shape-2"></div>
-        <div class="geometric-shape shape-3"></div>
+    <div class="grid-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
     </div>
 
     <header class="header">
@@ -804,7 +1080,7 @@
     <!-- 1. القسم الأول: مرحباً بك -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=6924803d&is=69232ebd&hm=6471f8d1d81340708b9c5166f96b2443c645305e49f16d1832a0c295599ac44d&">
+            <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=6924803d&is=69232ebd&hm=6471f8d1d81340708b9c5166f96b2443c645305e49f16d1832a0c295599ac44d&" class="hero-logo">
             <h1>مرحباً بك في Legesty City</h1>
             <p>سيرفر حياة واقعية سعودي متميز - واقعية تفوق التوقعات</p>
             <div class="cta-buttons">
@@ -818,7 +1094,7 @@
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-number">128+</div>
-                <div class="stat-label">اقصئ عدد للاعبين</div>
+                <div class="stat-label">أقصى عدد للاعبين</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">24/7</div>
@@ -845,20 +1121,32 @@
                 </div>
                 <div class="about-features">
                     <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
                         <h3 class="feature-title">تنوع كبير في الوظائف والمشاريع</h3>
                         <p class="feature-description">مجالات متعددة تمنحك حرية الاختيار والتجربة</p>
                     </div>
                     <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
                         <h3 class="feature-title">تفاعل مميز بين اللاعبين</h3>
                         <p class="feature-description">مجتمع مليء بالنشاط والحيوية</p>
                     </div>
                     <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
                         <h3 class="feature-title">تجربة رول بلاي واقعية باحترافية عالية</h3>
                         <p class="feature-description">نظام يجمع بين الواقعية والمتعة في كل التفاصيل</p>
                     </div>
                     <div class="about-feature">
-                        <h3 class="feature-title">تنوع كبير في الوظائف والمشاريع</h3>
-                        <p class="feature-description">مجالات متعددة تمنحك حرية الاختيار والتجربة</p>
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="feature-title">جودة وتطوير مستمر</h3>
+                        <p class="feature-description">تحديثات مستمرة لتحسين تجربة اللاعبين</p>
                     </div>
                 </div>
             </div>
@@ -996,6 +1284,7 @@
                 <h3>تواصل معنا</h3>
                 <ul>
                     <li><a href="https://discord.gg/fm4">Discord</a></li>
+                    <li><a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw">Roblox</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1003,6 +1292,7 @@
                 <ul>
                     <li>أعضاء السيرفر: 4328</li>
                     <li>الحالة: متصل</li>
+                    <li>الإصدار: 2.5.1</li>
                 </ul>
             </div>
         </div>
@@ -1095,6 +1385,7 @@
     </div>
 
     <script>
+        // التنقل السلس
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1108,14 +1399,16 @@
             });
         });
 
+        // إنشاء الجسيمات المتحركة
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 60; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.backgroundColor = i % 3 === 0 ? '#6c63ff' : i % 3 === 1 ? '#36d1dc' : '#ff6584';
                 particlesContainer.appendChild(particle);
             }
         }
@@ -1140,16 +1433,19 @@
             // فتح نافذة قوانين الديسكورد
             discordRulesBtn.addEventListener('click', function() {
                 discordRulesModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             });
 
             // فتح نافذة قوانين الحياة الجديدة
             nlrRulesBtn.addEventListener('click', function() {
                 nlrRulesModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             });
 
             // فتح نافذة القوانين الأخرى
             otherRulesBtn.addEventListener('click', function() {
                 otherRulesModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             });
 
             // إغلاق النوافذ
@@ -1158,6 +1454,7 @@
                     discordRulesModal.style.display = 'none';
                     nlrRulesModal.style.display = 'none';
                     otherRulesModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 });
             });
 
@@ -1165,25 +1462,59 @@
             window.addEventListener('click', function(event) {
                 if (event.target === discordRulesModal) {
                     discordRulesModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
                 if (event.target === nlrRulesModal) {
                     nlrRulesModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
                 if (event.target === otherRulesModal) {
                     otherRulesModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
             });
         });
 
+        // تأثير التمرير على الهيدر
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 25, 45, 0.98)';
+                header.style.background = 'rgba(15, 21, 37, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
             } else {
-                header.style.background = 'rgba(15, 25, 45, 0.95)';
+                header.style.background = 'rgba(15, 21, 37, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+                header.style.boxShadow = 'none';
             }
+            
+            // تأثيرات التمرير على العناصر
+            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-btn, .store-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // تهيئة تأثيرات التمرير
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-btn, .store-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // تشغيل تأثيرات بعد تحميل الصفحة
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
         });
     </script>
 </body>
 </html>
-
