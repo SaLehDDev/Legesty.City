@@ -3,289 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legesty City - متجر ليجستي سيتي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>Legesty City - سيرفر الحياة الواقعية السعودي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #8a2be2;
+            --primary-glow: #9d4edd;
+            --primary-dark: #7b1fa2;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --gold: #ffd700;
+            --platinum: #e5e4e2;
+            --bg-dark: #0a0a1a;
+            --bg-darker: #050510;
+            --bg-card: rgba(20, 20, 40, 0.8);
+            --text: #f0f4ff;
+            --text-light: #b8c1ec;
+            --gradient: linear-gradient(135deg, #8a2be2, #4ecdc4, #ff6b6b);
+            --gradient-gold: linear-gradient(135deg, #ffd700, #ffaa00, #ff6b00);
+            --shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+            --shadow-gold: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        :root {
-            --primary: #6c63ff;
-            --primary-light: #a8a4ff;
-            --primary-dark: #554fd8;
-            --secondary: #ff6584;
-            --accent: #36d1dc;
-            --bg-dark: #0f1525;
-            --bg-darker: #0a0f1a;
-            --bg-light: #1a2332;
-            --text: #f0f4ff;
-            --text-light: #b8c1ec;
-            --card-bg: rgba(26, 35, 50, 0.7);
-            --gradient: linear-gradient(135deg, #6c63ff, #36d1dc);
-            --gradient-dark: linear-gradient(135deg, #554fd8, #2aa9b5);
+
+        html {
+            scroll-behavior: smooth;
         }
+
         body {
-            font-family: 'Cairo', 'Arial', sans-serif;
+            font-family: 'Cairo', sans-serif;
             background: var(--bg-darker);
             color: var(--text);
             overflow-x: hidden;
+            line-height: 1.7;
             position: relative;
-            line-height: 1.6;
         }
 
-        /* خلفية محسنة مع تأثيرات أكثر سلاسة */
-        body::before {
-            content: '';
+        /* تأثير النيون الخلفي */
+        .neon-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(108, 99, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(54, 209, 220, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 40% 40%, rgba(255, 101, 132, 0.08) 0%, transparent 40%);
             z-index: -3;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(78, 205, 196, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            filter: blur(40px);
         }
 
-        /* شبكة هندسية خفيفة */
-        .grid-bg {
+        /* شبكة النيون */
+        .neon-grid {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(108, 99, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(108, 99, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
             z-index: -2;
             opacity: 0.3;
         }
 
-        /* أشكال هندسية عائمة */
-        .floating-shapes {
+        /* تأثير الوهج المتحرك */
+        .glow-effect {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: floatGlow 20s infinite ease-in-out;
+            z-index: -2;
+        }
+
+        .glow-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .glow-2 {
+            bottom: 10%;
+            right: 10%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.25) 0%, transparent 70%);
+            animation-delay: 5s;
+        }
+
+        .glow-3 {
+            top: 50%;
+            right: 20%;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%);
+            animation-delay: 10s;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -30px) scale(1.1); }
+            50% { transform: translate(-30px, 40px) scale(0.9); }
+            75% { transform: translate(-40px, -20px) scale(1.05); }
+        }
+
+        /* النجوم المتحركة */
+        .stars {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
         }
 
-        .shape {
+        .star {
             position: absolute;
-            background: rgba(108, 99, 255, 0.1);
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            border-radius: 20px;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .shape-1 {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            right: 5%;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 200px;
-            height: 200px;
-            bottom: 15%;
-            left: 10%;
-            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-            animation-delay: 5s;
-        }
-
-        .shape-3 {
-            width: 150px;
-            height: 150px;
-            top: 50%;
-            right: 15%;
+            background: white;
             border-radius: 50%;
-            animation-delay: 10s;
+            animation: twinkle 3s infinite;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-30px) rotate(5deg);
-            }
-            66% {
-                transform: translateY(20px) rotate(-5deg);
-            }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* تحسينات الهيدر */
-        .header {
+        /* الهيدر الفاخر */
+        .luxury-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 21, 37, 0.95);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(10, 10, 26, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
             z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(108, 99, 255, 0.3);
-            transition: all 0.3s ease;
+            padding: 1.2rem 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-scrolled {
+            background: rgba(5, 5, 16, 0.95);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.5);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 3rem;
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            position: relative;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.8rem;
+            color: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 2.2rem;
             font-weight: 900;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            letter-spacing: 1px;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
-        .nav-item a {
-            color: var(--text-light);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-size: 0.95rem;
+        .nav-item {
             position: relative;
         }
 
-        .nav-item a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 1rem;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-item a:hover {
-            color: white;
-            background: rgba(108, 99, 255, 0.1);
-        }
-
-        .nav-item a:hover::after {
-            width: calc(100% - 2rem);
-        }
-
-        /* تحسينات القسم الرئيسي */
-        .hero {
-            height: 100vh;
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-            position: relative;
-            padding: 2rem;
-        }
-
-        .hero-logo {
-            width: 180px;
-            height: 180px;
-            margin-bottom: 2rem;
-            animation: floatLogo 6s ease-in-out infinite;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(108, 99, 255, 0.3);
-        }
-
-        @keyframes floatLogo {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-15px) rotate(1deg); }
-            66% { transform: translateY(10px) rotate(-1deg); }
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .play-now-btn {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            gap: 0.5rem;
             position: relative;
             overflow: hidden;
         }
 
-        .play-now-btn::before {
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .nav-link:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-link i {
+            font-size: 1.2rem;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-item.active .nav-indicator {
+            width: 80%;
+        }
+
+        /* القسم الرئيسي الفاخر */
+        .luxury-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 3rem;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse 4s infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .hero-logo-container {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .hero-logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 50px rgba(138, 43, 226, 0.4),
+                inset 0 0 50px rgba(138, 43, 226, 0.2);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(2deg); }
+            50% { transform: translateY(-10px) rotate(-2deg); }
+            75% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .luxury-btn {
+            padding: 1.3rem 3rem;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .luxury-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -294,62 +416,64 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.7s ease;
+            z-index: -1;
         }
 
-        .play-now-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
-        }
-
-        .play-now-btn:hover::before {
+        .luxury-btn:hover::before {
             left: 100%;
         }
 
-        .store-btn {
-            padding: 1rem 2.5rem;
-            border: 2px solid rgba(108, 99, 255, 0.5);
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            background: rgba(108, 99, 255, 0.1);
+        .btn-primary {
+            background: var(--gradient);
             color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(138, 43, 226, 0.4),
+                0 0 20px rgba(138, 43, 226, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(20, 20, 40, 0.8);
+            color: var(--text);
+            border: 2px solid rgba(138, 43, 226, 0.5);
             backdrop-filter: blur(10px);
         }
 
-        .store-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
-            background: rgba(108, 99, 255, 0.2);
+        .btn-secondary:hover {
+            background: rgba(138, 43, 226, 0.1);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
             border-color: var(--primary);
         }
 
-        /* تحسينات الإحصائيات */
-        .stats {
-            padding: 5rem 2rem;
-            background: rgba(15, 21, 37, 0.7);
-            backdrop-filter: blur(10px);
+        /* إحصائيات فاخرة */
+        .luxury-stats {
+            padding: 6rem 2rem;
+            background: rgba(10, 10, 26, 0.7);
+            position: relative;
+            overflow: hidden;
         }
 
         .stats-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
         }
 
         .stat-card {
-            background: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
+            background: var(--bg-card);
+            padding: 3rem 2rem;
+            border-radius: 25px;
             text-align: center;
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            backdrop-filter: blur(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -360,116 +484,130 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 5px;
             background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 
+                0 25px 50px rgba(138, 43, 226, 0.3),
+                inset 0 0 30px rgba(138, 43, 226, 0.1);
             border-color: transparent;
         }
 
         .stat-card:hover::before {
-            opacity: 0.1;
+            transform: scaleX(1);
+        }
+
+        .stat-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+
+        /* قسم عن السيرفر */
+        .luxury-about {
+            padding: 8rem 2rem;
+            background: var(--bg-darker);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title {
             font-size: 3.5rem;
             font-weight: 900;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            color: var(--text-light);
-        }
-
-        /* تحسينات الأقسام العامة */
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
+            margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .section-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
             height: 4px;
             background: var(--gradient);
             border-radius: 2px;
         }
 
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .about {
-            background: var(--bg-dark);
-        }
-
-        .about-container {
-            max-width: 1200px;
+        .section-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            max-width: 600px;
             margin: 0 auto;
         }
 
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
         .about-text {
-            max-width: 800px;
-            text-align: center;
             font-size: 1.3rem;
             line-height: 1.8;
             color: var(--text-light);
-            margin: 0 auto 4rem;
-            padding: 2rem;
-            background: rgba(26, 35, 50, 0.5);
-            border-radius: 20px;
-            border-left: 4px solid var(--primary);
         }
 
         .about-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            width: 100%;
         }
 
-        .about-feature {
-            background: var(--card-bg);
+        .feature-box {
+            background: var(--bg-card);
             padding: 2.5rem 2rem;
             border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .about-feature:hover {
+        .feature-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
             border-color: var(--primary);
+            box-shadow: var(--shadow);
         }
 
         .feature-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -482,327 +620,273 @@
             color: white;
         }
 
-        .feature-description {
-            font-size: 1.1rem;
+        .feature-desc {
             color: var(--text-light);
+            line-height: 1.6;
         }
 
-        /* تحسينات قسم القوانين */
-        .rules {
-            background: rgba(15, 21, 37, 0.7);
+        /* قسم القوانين */
+        .luxury-rules {
+            padding: 8rem 2rem;
+            background: rgba(10, 10, 26, 0.7);
+            position: relative;
         }
 
-        .rules-container {
-            max-width: 1200px;
+        .rules-grid {
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
-        .rule-btn {
-            background: var(--card-bg);
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            border-radius: 20px;
-            padding: 3rem 2rem;
+        .rule-card {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 25px;
             text-align: center;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            min-height: 250px;
             position: relative;
             overflow: hidden;
         }
 
-        .rule-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+        .rule-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 
+                0 30px 60px rgba(138, 43, 226, 0.3),
+                inset 0 0 40px rgba(138, 43, 226, 0.1);
         }
 
-        .rule-btn:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
-            border-color: transparent;
-        }
-
-        .rule-btn:hover::before {
-            opacity: 0.1;
-        }
-
-        .rule-btn i {
-            font-size: 3.5rem;
+        .rule-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .rule-btn h3 {
-            font-size: 1.8rem;
+        .rule-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: white;
         }
 
-        /* تحسينات قسم الخريطة */
-        .map-section {
-            background: var(--bg-dark);
-            text-align: center;
+        .rule-desc {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* قسم الخريطة */
+        .luxury-map {
+            padding: 8rem 2rem;
+            background: var(--bg-darker);
         }
 
         .map-container {
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(108, 99, 255, 0.3);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(138, 43, 226, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .map-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(138, 43, 226, 0.5),
+                0 0 30px rgba(138, 43, 226, 0.3);
         }
 
         .map-image {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
         }
 
-        .map-container:hover .map-image {
-            transform: scale(1.02);
-        }
-
-        /* تحسينات قسم المتجر */
-        .store-section {
-            background: rgba(15, 21, 37, 0.7);
-        }
-
-        .store-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* قسم المتجر الفاخر */
+        .luxury-store {
+            padding: 8rem 2rem;
+            background: rgba(10, 10, 26, 0.7);
         }
 
         .store-grid {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
-        .store-item {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 25px;
             overflow: hidden;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
-        .store-item::before {
-            content: '';
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 
+                0 30px 60px rgba(138, 43, 226, 0.3),
+                inset 0 0 40px rgba(138, 43, 226, 0.1);
+        }
+
+        .product-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 20px;
+            left: 20px;
             background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
         }
 
-        .store-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
-            border-color: transparent;
-        }
-
-        .store-item:hover::before {
-            opacity: 0.1;
-        }
-
-        .item-icon {
+        .product-image {
             width: 100%;
-            height: 180px;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            background: rgba(108, 99, 255, 0.1);
+            height: 250px;
+            background: rgba(138, 43, 226, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            border: 2px solid rgba(108, 99, 255, 0.2);
-        }
-
-        .item-title {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .item-description {
-            flex-grow: 1;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .buy-btn {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-        }
-
-        .buy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
-            background: var(--gradient-dark);
-        }
-
-        .store-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 5rem;
-        }
-
-        .store-feature {
-            background: rgba(26, 35, 50, 0.5);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .store-feature:hover {
-            transform: translateY(-5px);
-            background: rgba(108, 99, 255, 0.1);
-        }
-
-        .store-feature i {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .store-feature h3 {
-            margin-bottom: 0.8rem;
-            color: white;
-            font-size: 1.3rem;
-        }
-
-        /* تحسينات قسم الديسكورد */
-        .discord {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(54, 209, 220, 0.9));
-            text-align: center;
+            font-size: 5rem;
+            color: var(--primary);
             position: relative;
             overflow: hidden;
         }
 
-        .discord::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .product-content {
+            padding: 2.5rem;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .product-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .product-desc {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .product-btn {
             width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-            background-size: cover;
+            padding: 1.2rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .product-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* قسم الديسكورد */
+        .luxury-discord {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.9), rgba(78, 205, 196, 0.9));
+            position: relative;
+            overflow: hidden;
         }
 
         .discord-content {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .discord h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .discord-title {
+            font-size: 3.5rem;
             color: white;
+            margin-bottom: 1.5rem;
             font-weight: 900;
         }
 
-        .discord p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+        .discord-subtitle {
+            font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
         }
 
         .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
             background: white;
             color: var(--primary);
-            padding: 1.2rem 3rem;
-            border-radius: 12px;
+            padding: 1.5rem 3rem;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 700;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            font-size: 1.3rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .discord-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            color: var(--primary-dark);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* تحسينات الفوتر */
-        .footer {
+        /* الفوتر الفاخر */
+        .luxury-footer {
             background: var(--bg-darker);
             padding: 5rem 2rem 2rem;
-            border-top: 1px solid rgba(108, 99, 255, 0.3);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            gap: 4rem;
             margin-bottom: 3rem;
         }
 
         .footer-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
             color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
             position: relative;
-            padding-bottom: 0.8rem;
+            padding-bottom: 1rem;
         }
 
         .footer-section h3::after {
@@ -810,231 +894,187 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 50px;
+            width: 60px;
             height: 3px;
             background: var(--gradient);
             border-radius: 2px;
         }
 
-        .footer-section p, .footer-section ul li {
+        .footer-section p {
             color: var(--text-light);
             line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-section ul {
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .footer-links {
             list-style: none;
         }
 
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
+        .footer-links li {
+            margin-bottom: 1rem;
         }
 
-        .footer-section ul li a {
+        .footer-links a {
             color: var(--text-light);
             text-decoration: none;
             transition: all 0.3s ease;
-            display: inline-block;
-            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .footer-section ul li a:hover {
-            color: var(--primary-light);
+        .footer-links a:hover {
+            color: var(--primary);
             transform: translateX(-5px);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 3rem;
-            border-top: 1px solid rgba(108, 99, 255, 0.2);
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
-        /* جسيمات محسنة */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            animation: floatParticle 8s infinite linear;
-            box-shadow: 0 0 10px var(--primary-light);
-        }
-
-        @keyframes floatParticle {
-            0% {
-                opacity: 0;
-                transform: translateY(100vh) translateX(0) scale(0);
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) translateX(100px) scale(1);
-            }
-        }
-
-        /* تحسينات النوافذ المنبثقة */
-        .rules-modal {
+        /* النوافذ المنبثقة الفاخرة */
+        .luxury-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 15, 26, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 16, 0.95);
+            backdrop-filter: blur(20px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
+            padding: 2rem;
+            animation: modalFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes fadeIn {
+        @keyframes modalFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        .rules-modal-content {
-            background: var(--card-bg);
-            border-radius: 20px;
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 30px;
             width: 90%;
-            max-width: 800px;
+            max-width: 900px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 3rem;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            padding: 4rem;
             position: relative;
-            border: 1px solid rgba(108, 99, 255, 0.3);
-            backdrop-filter: blur(20px);
-            animation: slideUp 0.4s ease;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(138, 43, 226, 0.2),
+                0 0 50px rgba(138, 43, 226, 0.2);
+            animation: modalSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
+        @keyframes modalSlideUp {
+            from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
         .close-modal {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
             background: var(--gradient);
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 10;
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
         }
 
         .close-modal:hover {
             transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.5);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
         }
 
         .modal-title {
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
         }
 
-        .modal-rules-list {
+        .rules-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
-        .modal-rule-item {
+        .rule-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 1.8rem;
-            border-radius: 15px;
-            border-right: 4px solid var(--primary);
-            transition: all 0.3s ease;
+            padding: 2rem;
+            border-radius: 20px;
+            border-right: 5px solid var(--primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .modal-rule-item:hover {
-            background: rgba(108, 99, 255, 0.1);
+        .rule-item:hover {
+            background: rgba(138, 43, 226, 0.1);
             transform: translateX(-5px);
         }
 
-        .modal-rule-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+        .rule-item h4 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
             color: white;
         }
 
-        .modal-rule-item p {
-            font-size: 1.1rem;
+        .rule-item p {
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
-        /* تحسينات للشاشات الصغيرة */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .stat-card, .about-feature, .rule-btn, .store-item {
-                padding: 1.8rem 1.5rem;
-            }
-            
-            .play-now-btn, .store-btn, .buy-btn, .discord-btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 1rem;
-            }
-            
-            .rules-modal-content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .modal-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* شريط التمرير المخصص */
+        /* شريط التمرير الفاخر */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
 
         ::-webkit-scrollbar-track {
@@ -1043,477 +1083,707 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--gradient);
-            border-radius: 5px;
+            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient-dark);
+            background: var(--primary);
+        }
+
+        /* تأثيرات للشاشات الصغيرة */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .luxury-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .store-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        /* تأثيرات دخول العناصر */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    <div class="grid-bg"></div>
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
+    <!-- تأثيرات الخلفية -->
+    <div class="neon-bg"></div>
+    <div class="neon-grid"></div>
+    <div class="glow-effect glow-1"></div>
+    <div class="glow-effect glow-2"></div>
+    <div class="glow-effect glow-3"></div>
+    <div class="stars" id="stars"></div>
 
-    <header class="header">
+    <!-- الهيدر الفاخر -->
+    <header class="luxury-header" id="header">
         <nav class="nav-container">
             <div class="logo">
                 <div class="logo-icon">🏙️</div>
-                Legesty City
+                <div class="logo-text">
+                    <div class="logo-main">Legesty City</div>
+                    <div class="logo-sub">سيرفر الحياة الواقعية</div>
+                </div>
             </div>
+            
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#home">الرئيسية</a></li>
-                <li class="nav-item"><a href="#about">عن السيرفر</a></li>
-                <li class="nav-item"><a href="#rules">قوانين السيرفر</a></li>
-                <li class="nav-item"><a href="#map">خريطة السيرفر</a></li>
-                <li class="nav-item"><a href="#store">متجر السيرفر</a></li>
-                <li class="nav-item"><a href="https://discord.gg/fm4" target="_blank">ديسكورد</a></li>
+                <li class="nav-item active">
+                    <a href="#home" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        الرئيسية
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        عن السيرفر
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item">
+                    <a href="#rules" class="nav-link">
+                        <i class="fas fa-gavel"></i>
+                        القوانين
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item">
+                    <a href="#map" class="nav-link">
+                        <i class="fas fa-map"></i>
+                        الخريطة
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item">
+                    <a href="#store" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        المتجر
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <!-- 1. القسم الأول: مرحباً بك -->
-    <section id="home" class="hero">
+    <!-- القسم الرئيسي -->
+    <section id="home" class="luxury-hero">
+        <div class="hero-glow"></div>
         <div class="hero-content">
-            <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=6924803d&is=69232ebd&hm=6471f8d1d81340708b9c5166f96b2443c645305e49f16d1832a0c295599ac44d&" class="hero-logo">
-            <h1>مرحباً بك في Legesty City</h1>
-            <p>سيرفر حياة واقعية سعودي متميز - واقعية تفوق التوقعات</p>
-            <div class="cta-buttons">
-                <a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw" target="_blank" class="play-now-btn">ابدأ اللعب الآن</a>
-                <a href="#store" class="store-btn">متجر ليجستي سيتي</a>
+            <div class="hero-logo-container">
+                <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=6924803d&is=69232ebd&hm=6471f8d1d81340708b9c5166f96b2443c645305e49f16d1832a0c295599ac44d&" 
+                     alt="Legesty City Logo" class="hero-logo">
+            </div>
+            
+            <h1 class="hero-title">Legesty City</h1>
+            <p class="hero-subtitle">
+                سيرفر حياة واقعية سعودي متميز - واقعية تفوق التوقعات مع أنظمة متطورة وتفاعل حقيقي
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw" 
+                   target="_blank" 
+                   class="luxury-btn btn-primary">
+                    <i class="fas fa-play-circle"></i>
+                    ابدأ اللعب الآن
+                </a>
+                <a href="#store" class="luxury-btn btn-secondary">
+                    <i class="fas fa-gem"></i>
+                    متجر VIP الفاخر
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="stats">
+    <!-- قسم الإحصائيات -->
+    <section class="luxury-stats">
         <div class="stats-container">
-            <div class="stat-card">
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
                 <div class="stat-number">128+</div>
                 <div class="stat-label">أقصى عدد للاعبين</div>
             </div>
-            <div class="stat-card">
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
                 <div class="stat-number">24/7</div>
                 <div class="stat-label">الماب مفتوح</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">6+</div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="stat-number">12+</div>
                 <div class="stat-label">وظيفة متنوعة</div>
             </div>
-            <div class="stat-card">
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="stat-number">5★</div>
                 <div class="stat-label">تقييم ممتاز</div>
             </div>
         </div>
     </section>
 
-    <!-- 2. القسم الثاني: عن السيرفر -->
-    <section id="about" class="about">
-        <h2 class="section-title">عن السيرفر</h2>
-        <div class="about-container">
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Legesty City هو سيرفر حياة واقعية سعودي، يتميز بنظام واقعي على مستوى عالٍ يستطيع اللاعب التفاعل داخل الرول بلاي ويتفرد السيرفر بشكل قوي وقطاعات متنوعة.</p>
-                </div>
-                <div class="about-features">
-                    <div class="about-feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h3 class="feature-title">تنوع كبير في الوظائف والمشاريع</h3>
-                        <p class="feature-description">مجالات متعددة تمنحك حرية الاختيار والتجربة</p>
-                    </div>
-                    <div class="about-feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="feature-title">تفاعل مميز بين اللاعبين</h3>
-                        <p class="feature-description">مجتمع مليء بالنشاط والحيوية</p>
-                    </div>
-                    <div class="about-feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h3 class="feature-title">تجربة رول بلاي واقعية باحترافية عالية</h3>
-                        <p class="feature-description">نظام يجمع بين الواقعية والمتعة في كل التفاصيل</p>
-                    </div>
-                    <div class="about-feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="feature-title">جودة وتطوير مستمر</h3>
-                        <p class="feature-description">تحديثات مستمرة لتحسين تجربة اللاعبين</p>
-                    </div>
-                </div>
-            </div>
+    <!-- قسم عن السيرفر -->
+    <section id="about" class="luxury-about">
+        <div class="section-header">
+            <h2 class="section-title">عن السيرفر</h2>
+            <p class="section-subtitle">اكتشف عالم Legesty City واستمتع بتجربة حياة واقعية فريدة</p>
         </div>
-    </section>
-
-    <!-- 3. القسم الثالث: قوانين السيرفر -->
-    <section id="rules" class="rules">
-        <h2 class="section-title">قوانين السيرفر</h2>
-        <div class="rules-container">
-            <!-- زر قوانين الديسكورد -->
-            <div class="rule-btn" id="discordRulesBtn">
-                <i class="fab fa-discord"></i>
-                <h3>قوانين الديسكورد</h3>
+        
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>Legesty City هو سيرفر حياة واقعية سعودي متميز، يتميز بنظام واقعي على مستوى عالٍ يستطيع اللاعب التفاعل داخل الرول بلاي ويتفرد السيرفر بشكل قوي وقطاعات متنوعة.</p>
+                <p>تم تصميم السيرفر بخبرة طويلة ليوفر تجربة لا مثيل لها في عالم Roblox، مع أنظمة متطورة ورسومات عالية الجودة وخدمة دعم فني على مدار الساعة.</p>
             </div>
-
-            <!-- زر قوانين الحياة الجديدة -->
-            <div class="rule-btn" id="nlrRulesBtn">
-                <i class="fas fa-heartbeat"></i>
-                <h3>الحياة الجديدة - NLR</h3>
-            </div>
-
-            <!-- زر القوانين الأخرى -->
-            <div class="rule-btn" id="otherRulesBtn">
-                <i class="fas fa-gavel"></i>
-                <h3>قوانين أخرى</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. القسم الرابع: خريطة السيرفر -->
-    <section id="map" class="map-section">
-        <h2 class="section-title">خريطة السيرفر</h2>
-        <div class="map-container">
-            <img src="https://cdn.discordapp.com/attachments/1436783331353165916/1442211481738547301/noFilter_1.webp?ex=69249b9c&is=69234a1c&hm=50f2a2da8a012d5b23ec850e90d5601f931f4bcdad766dadc90ab4ecb44856f4&" alt="خريطة Legesty City" class="map-image">
-        </div>
-    </section>
-
-    <!-- 5. القسم الخامس: متجر السيرفر -->
-    <section id="store" class="store-section">
-        <h2 class="section-title">متجر ليجستي سيتي</h2>
-        <div class="store-container">
-            <div class="store-grid">
-                <!-- مقابلة فورية -->
-                <div class="store-item">
-                    <div class="item-icon">
-                        <i class="fas fa-video"></i>
+            
+            <div class="about-features">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="item-title">مقابلة فورية</h3>
-                    <p class="item-description">انضم الآن واحصل على فرصة الدخول للسيرفر مباشرة</p>
-                    <a href="https://www.roblox.com/game-pass/1433005651/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                    <h3 class="feature-title">حماية وأمان</h3>
+                    <p class="feature-desc">نظام حماية متطور ضد الغش والاختراقات</p>
                 </div>
                 
-                <!-- بيت خاص -->
-                <div class="store-item">
-                    <div class="item-icon">
-                        <i class="fas fa-home"></i>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3 class="item-title">بيت خاص</h3>
-                    <p class="item-description">امتلك منزلك الخاص داخل المدينة وعيش التجربة بطريقتك</p>
-                    <a href="https://www.roblox.com/game-pass/1535469582/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                    <h3 class="feature-title">أداء عالي</h3>
+                    <p class="feature-desc">سيرفر سريع بدون تقطيع أو تأخير</p>
                 </div>
                 
-                <!-- فك الباند -->
-                <div class="store-item">
-                    <div class="item-icon">
-                        <i class="fas fa-unlock"></i>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <h3 class="item-title">فك الباند</h3>
-                    <p class="item-description">قم بفك الحظر عن حسابك واستعد دخولك إلى السيرفر</p>
-                    <a href="https://www.roblox.com/game-pass/1477829644/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                    <h3 class="feature-title">دعم فني</h3>
+                    <p class="feature-desc">دعم فني متواصل 24/7 لحل المشاكل</p>
                 </div>
                 
-                <!-- مشروع عام -->
-                <div class="store-item">
-                    <div class="item-icon">
-                        <i class="fas fa-briefcase"></i>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync"></i>
                     </div>
-                    <h3 class="item-title">مشروع عام</h3>
-                    <p class="item-description">ابدأ مشروعك التجاري الخاص وحقق طموحك داخل المدينة</p>
-                    <a href="https://www.roblox.com/game-pass/1477541653/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
-                </div>
-            </div>
-
-            <div class="store-features">
-                <div class="store-feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>دفع آمن</h3>
-                    <p>نظام دفع آمن ومحمي بنظام تشفير متقدم</p>
-                </div>
-                <div class="store-feature">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>تسليم فوري</h3>
-                    <p>تسليم فوري للطلبات بعد إتمام عملية الدفع</p>
-                </div>
-                <div class="store-feature">
-                    <i class="fas fa-headset"></i>
-                    <h3>دعم فني</h3>
-                    <p>دعم فني متواصل على مدار الساعة</p>
-                </div>
-                <div class="store-feature">
-                    <i class="fas fa-undo"></i>
-                    <h3>استرجاع</h3>
-                    <p>إمكانية استرجاع المنتج في حال وجود مشكلة</p>
+                    <h3 class="feature-title">تحديثات مستمرة</h3>
+                    <p class="feature-desc">تحديثات أسبوعية لإضافة محتوى جديد</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="discord" class="discord">
+    <!-- قسم القوانين -->
+    <section id="rules" class="luxury-rules">
+        <div class="section-header">
+            <h2 class="section-title">قوانين السيرفر</h2>
+            <p class="section-subtitle">قوانين واضحة لضمان تجربة لعب عادلة للجميع</p>
+        </div>
+        
+        <div class="rules-grid">
+            <div class="rule-card fade-in" id="discordRulesBtn">
+                <div class="rule-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3 class="rule-title">قوانين الديسكورد</h3>
+                <p class="rule-desc">قوانين خاصة بالسيرفر الداعم على Discord</p>
+            </div>
+            
+            <div class="rule-card fade-in" id="nlrRulesBtn">
+                <div class="rule-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="rule-title">قوانين NLR</h3>
+                <p class="rule-desc">قوانين الحياة الجديدة داخل السيرفر</p>
+            </div>
+            
+            <div class="rule-card fade-in" id="generalRulesBtn">
+                <div class="rule-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="rule-title">القوانين العامة</h3>
+                <p class="rule-desc">القوانين الأساسية للعب داخل السيرفر</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخريطة -->
+    <section id="map" class="luxury-map">
+        <div class="section-header">
+            <h2 class="section-title">خريطة السيرفر</h2>
+            <p class="section-subtitle">استكشف مدينة Legesty City بتفاصيلها الدقيقة</p>
+        </div>
+        
+        <div class="map-container fade-in">
+            <img src="https://cdn.discordapp.com/attachments/1436783331353165916/1442211481738547301/noFilter_1.webp?ex=69249b9c&is=69234a1c&hm=50f2a2da8a012d5b23ec850e90d5601f931f4bcdad766dadc90ab4ecb44856f4&" 
+                 alt="خريطة Legesty City" class="map-image">
+        </div>
+    </section>
+
+    <!-- قسم المتجر -->
+    <section id="store" class="luxury-store">
+        <div class="section-header">
+            <h2 class="section-title">متجر VIP</h2>
+            <p class="section-subtitle">اشترِ مميزات حصرية وحسّن تجربتك في اللعبة</p>
+        </div>
+        
+        <div class="store-grid">
+            <div class="product-card fade-in">
+                <div class="product-badge">الأكثر مبيعاً</div>
+                <div class="product-image">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">مقابلة فورية</h3>
+                    <div class="product-price">45 ريال</div>
+                    <p class="product-desc">انضم الآن واحصل على فرصة الدخول للسيرفر مباشرة بدون انتظار</p>
+                    <button class="product-btn" onclick="buyProduct('مقابلة فورية')">
+                        <i class="fas fa-shopping-cart"></i>
+                        شراء الآن
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">مميز</div>
+                <div class="product-image">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">بيت خاص VIP</h3>
+                    <div class="product-price">120 ريال</div>
+                    <p class="product-desc">امتلك منزلك الفاخر داخل المدينة مع مميزات حصرية</p>
+                    <button class="product-btn" onclick="buyProduct('بيت خاص VIP')">
+                        <i class="fas fa-shopping-cart"></i>
+                        شراء الآن
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">جديد</div>
+                <div class="product-image">
+                    <i class="fas fa-unlock"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">فك الباند الذهبي</h3>
+                    <div class="product-price">75 ريال</div>
+                    <p class="product-desc">قم بفك الحظر عن حسابك مع حماية من الحظر المستقبلي</p>
+                    <button class="product-btn" onclick="buyProduct('فك الباند الذهبي')">
+                        <i class="fas fa-shopping-cart"></i>
+                        شراء الآن
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">حصري</div>
+                <div class="product-image">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">مشروع خاص</h3>
+                    <div class="product-price">200 ريال</div>
+                    <p class="product-desc">ابدأ مشروعك التجاري الخاص مع إدارة كاملة ودعم فني</p>
+                    <button class="product-btn" onclick="buyProduct('مشروع خاص')">
+                        <i class="fas fa-shopping-cart"></i>
+                        شراء الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الديسكورد -->
+    <section id="discord" class="luxury-discord">
         <div class="discord-content">
-            <h2>انضم إلى مجتمعنا</h2>
-            <p>تواصل مع اللاعبين الآخرين واحصل على آخر الأخبار والتحديثات</p>
-            <a href="https://discord.gg/fm4" class="discord-btn">انضم إلى Discord</a>
+            <h2 class="discord-title">انضم إلى مجتمعنا</h2>
+            <p class="discord-subtitle">تواصل مع آلاف اللاعبين، احصل على آخر الأخبار، وكن أول من يعرف عن التحديثات القادمة</p>
+            <a href="https://discord.gg/fm4" target="_blank" class="discord-btn">
+                <i class="fab fa-discord"></i>
+                انضم إلى سيرفر الديسكورد
+            </a>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- الفوتر -->
+    <footer class="luxury-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Legesty City</h3>
-                <p>أفضل سيرفر الحياة الواقعية في Roblox. انضم إلينا وعش تجربة لا تُنسى.</p>
+                <p>أفضل سيرفر حياة واقعية في Roblox، يوفر تجربة لعب فريدة مع أنظمة متطورة ورسومات عالية الجودة.</p>
+                <div class="social-links">
+                    <a href="https://discord.gg/fm4" class="social-link" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw" class="social-link" target="_blank">
+                        <i class="fab fa-roblox"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
+            
             <div class="footer-section">
                 <h3>روابط سريعة</h3>
-                <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#about">عن السيرفر</a></li>
-                    <li><a href="#rules">قوانين السيرفر</a></li>
-                    <li><a href="#map">خريطة السيرفر</a></li>
-                    <li><a href="#store">متجر السيرفر</a></li>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-left"></i> عن السيرفر</a></li>
+                    <li><a href="#rules"><i class="fas fa-chevron-left"></i> القوانين</a></li>
+                    <li><a href="#map"><i class="fas fa-chevron-left"></i> الخريطة</a></li>
+                    <li><a href="#store"><i class="fas fa-chevron-left"></i> المتجر</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
-                <h3>تواصل معنا</h3>
-                <ul>
-                    <li><a href="https://discord.gg/fm4">Discord</a></li>
-                    <li><a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw">Roblox</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>معلومات السيرفر</h3>
-                <ul>
-                    <li>أعضاء السيرفر: 4328</li>
-                    <li>الحالة: متصل</li>
-                    <li>الإصدار: 2.5.1</li>
+                <h3>معلومات الاتصال</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> البريد الإلكتروني</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> الشروط والأحكام</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>© 2025 Legesty City. جميع الحقوق محفوظة.</p>
+            <p>© 2025 Legesty City. جميع الحقوق محفوظة. | تصميم وتطوير فريق Legesty City</p>
         </div>
     </footer>
 
     <!-- نوافذ القوانين المنبثقة -->
-    <!-- نافذة قوانين الديسكورد -->
-    <div class="rules-modal" id="discordRulesModal">
-        <div class="rules-modal-content">
+    <div class="luxury-modal" id="discordRulesModal">
+        <div class="modal-content">
             <button class="close-modal">&times;</button>
-            <h2 class="modal-title"><i class="fab fa-discord"></i> قوانين الديسكورد</h2>
-            <div class="modal-rules-list">
-                <div class="modal-rule-item">
-                    <h4>الاحترام</h4>
-                    <p>احترام الجميع وعدم السب وإهانة أي شخص مهما كانت الظروف</p>
+            <h2 class="modal-title">قوانين الديسكورد</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <h4>الاحترام المتبادل</h4>
+                    <p>احترام جميع الأعضاء والامتناع عن السب أو الإهانة بأي شكل من الأشكال.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>الروابط</h4>
-                    <p>عدم وضع روابط دعوات لسيرفرات أخرى</p>
+                <div class="rule-item">
+                    <h4>منع الروابط الخارجية</h4>
+                    <p>يمنع نشر روابط سيرفرات أو مواقع أخرى بدون إذن من الإدارة.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>المواضيع الحساسة</h4>
-                    <p>عدم الخوض بالأمور الدينية أو السياسية</p>
+                <div class="rule-item">
+                    <h4>المواضيع المحظورة</h4>
+                    <p>يمنع مناقشة المواضيع الدينية أو السياسية أو أي مواضيع حساسة.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>تعدد الحسابات</h4>
-                    <p>ممنوع امتلاك أكثر من حساب ديسكورد</p>
+                <div class="rule-item">
+                    <h4>حساب واحد فقط</h4>
+                    <p>يمنع امتلاك أكثر من حساب ديسكورد في السيرفر.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>انتحال الشخصيات</h4>
-                    <p>يمنع انتحال الشخصيات الإدارية</p>
+                <div class="rule-item">
+                    <h4>منع انتحال الشخصية</h4>
+                    <p>يمنع انتحال شخصية أي عضو من الإدارة أو الأعضاء الآخرين.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>السبام</h4>
-                    <p>يمنع السبام في الشات</p>
+                <div class="rule-item">
+                    <h4>منع السبام</h4>
+                    <p>يمنع إرسال رسائل متكررة أو غير ضرورية في القنوات.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- نافذة قوانين الحياة الجديدة -->
-    <div class="rules-modal" id="nlrRulesModal">
-        <div class="rules-modal-content">
+    <div class="luxury-modal" id="nlrRulesModal">
+        <div class="modal-content">
             <button class="close-modal">&times;</button>
-            <h2 class="modal-title"><i class="fas fa-heartbeat"></i> قوانين الحياة الجديدة - NLR</h2>
-            <div class="modal-rules-list">
-                <div class="modal-rule-item">
+            <h2 class="modal-title">قوانين الحياة الجديدة (NLR)</h2>
+            <div class="rules-list">
+                <div class="rule-item">
                     <h4>الإغماء الكامل</h4>
-                    <p>في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة أو فعل أي شيء</p>
+                    <p>عند الإغماء الكامل، لا يمكنك التحدث أو الحركة أو القيام بأي إجراء.</p>
                 </div>
-                <div class="modal-rule-item">
+                <div class="rule-item">
                     <h4>الإنعاش من المسعفين</h4>
-                    <p>في حال تم إسقاطك وإنعاشك من قبل مسعفين تستطيع تذكر جميع الأحداث</p>
+                    <p>إذا تم إنعاشك من قبل المسعفين، يمكنك تذكر جميع الأحداث السابقة.</p>
                 </div>
-                <div class="modal-rule-item">
+                <div class="rule-item">
                     <h4>الإبرة في العيادة</h4>
-                    <p>في حال تم إعطاؤك إبرة في العيادة الخاصة لا تستطيع تذكر أي شيء حصل لك</p>
+                    <p>إذا تلقيت إبرة في العيادة، تفقد ذاكرة الأحداث التي أدت إلى دخولك العيادة.</p>
+                </div>
+                <div class="rule-item">
+                    <h4>منطقة الموت</h4>
+                    <p>لا يمكنك العودة إلى موقع وفاتك لمدة 10 دقائق بعد الحياة الجديدة.</p>
+                </div>
+                <div class="rule-item">
+                    <h4>الهوية الجديدة</h4>
+                    <p>عند الحياة الجديدة، تعتبر شخصية جديدة ولا يمكنك الانتقام بناءً على أحداث سابقة.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- نافذة القوانين الأخرى -->
-    <div class="rules-modal" id="otherRulesModal">
-        <div class="rules-modal-content">
+    <div class="luxury-modal" id="generalRulesModal">
+        <div class="modal-content">
             <button class="close-modal">&times;</button>
-            <h2 class="modal-title"><i class="fas fa-gavel"></i> قوانين أخرى</h2>
-            <div class="modal-rules-list">
-                <div class="modal-rule-item">
-                    <h4>الباور جيمنج - PowerGaming</h4>
-                    <p>استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي</p>
+            <h2 class="modal-title">القوانين العامة للسيرفر</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <h4>الباور جيمنج (PowerGaming)</h4>
+                    <p>استخدام وسائل غير موجودة في اللعبة للحصول على ميزة غير عادلة.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>الخوف على الحياة - NVL</h4>
-                    <p>عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد</p>
+                <div class="rule-item">
+                    <h4>الخوف على الحياة (NVL)</h4>
+                    <p>عدم الخوف بشكل واقعي على حياتك عند التعرض للتهديد.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>الميتا جيمنج - Metagaming</h4>
-                    <p>أي معلومة تحصل عليها من خارج المدينة (بث، ديسكورد، يوتيوب) تعتبر مخالفة</p>
+                <div class="rule-item">
+                    <h4>الميتا جيمنج (Metagaming)</h4>
+                    <p>استخدام معلومات من خارج اللعبة (ديسكورد، يوتيوب) داخل اللعبة.</p>
                 </div>
-                <div class="modal-rule-item">
-                    <h4>القتل العشوائي - RDM</h4>
-                    <p>قتل الأشخاص دون سبب أو تهديد أو بصورة عشوائية يعتبر ممنوع</p>
+                <div class="rule-item">
+                    <h4>القتل العشوائي (RDM)</h4>
+                    <p>قتل اللاعبين بدون سبب أو تهديد مسبق.</p>
+                </div>
+                <div class="rule-item">
+                    <h4>التدخل الإداري (FailRP)</h4>
+                    <p>التصرف بشكل غير واقعي أو يتعارض مع قواعد الرول بلاي.</p>
+                </div>
+                <div class="rule-item">
+                    <h4>التهديد بالسلاح (VDM)</h4>
+                    <p>استخدام المركبات لقتل اللاعبين بدون سبب واقعي.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // التنقل السلس
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // إنشاء الجسيمات المتحركة
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 60; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                particle.style.animationDelay = Math.random() * 3 + 's';
-                particle.style.backgroundColor = i % 3 === 0 ? '#6c63ff' : i % 3 === 1 ? '#36d1dc' : '#ff6584';
-                particlesContainer.appendChild(particle);
+        // إنشاء النجوم
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.animationDuration = Math.random() * 3 + 2 + 's';
+                starsContainer.appendChild(star);
             }
         }
 
-        // التحكم في نوافذ القوانين المنبثقة
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-
-            // عناصر القوانين
-            const discordRulesBtn = document.getElementById('discordRulesBtn');
-            const nlrRulesBtn = document.getElementById('nlrRulesBtn');
-            const otherRulesBtn = document.getElementById('otherRulesBtn');
-            
-            // نوافذ القوانين
-            const discordRulesModal = document.getElementById('discordRulesModal');
-            const nlrRulesModal = document.getElementById('nlrRulesModal');
-            const otherRulesModal = document.getElementById('otherRulesModal');
-            
-            // أزرار الإغلاق
-            const closeButtons = document.querySelectorAll('.close-modal');
-
-            // فتح نافذة قوانين الديسكورد
-            discordRulesBtn.addEventListener('click', function() {
-                discordRulesModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-
-            // فتح نافذة قوانين الحياة الجديدة
-            nlrRulesBtn.addEventListener('click', function() {
-                nlrRulesModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-
-            // فتح نافذة القوانين الأخرى
-            otherRulesBtn.addEventListener('click', function() {
-                otherRulesModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-
-            // إغلاق النوافذ
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    discordRulesModal.style.display = 'none';
-                    nlrRulesModal.style.display = 'none';
-                    otherRulesModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                });
-            });
-
-            // إغلاق النوافذ عند النقر خارجها
-            window.addEventListener('click', function(event) {
-                if (event.target === discordRulesModal) {
-                    discordRulesModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-                if (event.target === nlrRulesModal) {
-                    nlrRulesModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-                if (event.target === otherRulesModal) {
-                    otherRulesModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        // تأثير التمرير على الهيدر
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 21, 37, 0.98)';
-                header.style.backdropFilter = 'blur(20px)';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+        // تأثيرات التمرير
+        function handleScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
             } else {
-                header.style.background = 'rgba(15, 21, 37, 0.95)';
-                header.style.backdropFilter = 'blur(15px)';
-                header.style.boxShadow = 'none';
+                header.classList.remove('header-scrolled');
             }
-            
-            // تأثيرات التمرير على العناصر
-            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-btn, .store-item');
-            elements.forEach(element => {
+
+            // تأثيرات ظهور العناصر
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
                 if (elementTop < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    element.classList.add('visible');
                 }
+            });
+        }
+
+        // تنشيط عناصر التنقل
+        function activateNavItems() {
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const link = item.querySelector('a');
+                if (link.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // التحكم في النوافذ المنبثقة
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            // فتح النوافذ
+            document.getElementById('discordRulesBtn').addEventListener('click', () => {
+                document.getElementById('discordRulesModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            document.getElementById('nlrRulesBtn').addEventListener('click', () => {
+                document.getElementById('nlrRulesModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            document.getElementById('generalRulesBtn').addEventListener('click', () => {
+                document.getElementById('generalRulesModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // إغلاق النوافذ
+            const closeButtons = document.querySelectorAll('.close-modal');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.luxury-modal').forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // إغلاق النوافذ عند النقر خارجها
+            window.addEventListener('click', (e) => {
+                if (e.target.classList.contains('luxury-modal')) {
+                    e.target.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // التنقل السلس
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // تفعيل تأثيرات التمرير
+            window.addEventListener('scroll', () => {
+                handleScroll();
+                activateNavItems();
+            });
+            
+            // تشغيل التأثيرات أول مرة
+            handleScroll();
+            activateNavItems();
+        });
+
+        // محاكاة شراء المنتجات
+        function buyProduct(productName) {
+            alert(`شكراً لاختيارك ${productName}!\nسيتم توجيهك إلى صفحة الدفع...`);
+            // في التطبيق الحقيقي، هنا سيتم توجيه المستخدم إلى بوابة الدفع
+        }
+
+        // تأثيرات إضافية للزراعة
+        document.querySelectorAll('.luxury-btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // تهيئة تأثيرات التمرير
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-btn, .store-item');
-            elements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        // تأثيرات صوتية خفيفة (اختياري)
+        function playHoverSound() {
+            // يمكن إضافة صوت خفيف هنا
+        }
+
+        // تأثيرات للأيقونات
+        document.querySelectorAll('.feature-icon, .stat-icon, .rule-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.2) rotate(5deg)';
             });
             
-            // تشغيل تأثيرات بعد تحميل الصفحة
-            setTimeout(() => {
-                window.dispatchEvent(new Event('scroll'));
-            }, 100);
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // إضافة تاريخ اليوم في الفوتر
+        document.addEventListener('DOMContentLoaded', function() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = date.toLocaleDateString('ar-SA', options);
+            
+            const footerBottom = document.querySelector('.footer-bottom');
+            if (footerBottom) {
+                const dateElement = document.createElement('p');
+                dateElement.textContent = `آخر تحديث: ${dateString}`;
+                dateElement.style.marginTop = '10px';
+                dateElement.style.fontSize = '0.9rem';
+                dateElement.style.opacity = '0.7';
+                footerBottom.appendChild(dateElement);
+            }
         });
     </script>
 </body>
