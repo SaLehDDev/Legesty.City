@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legesty City - مدينة ليجستي</title>
+    <title>Legesty City - متجر ليجستي سيتي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,21 +13,20 @@
             box-sizing: border-box;
         }
         :root {
-            --primary: #2c3e50;
-            --primary-light: #34495e;
-            --primary-dark: #1a252f;
-            --secondary: #e74c3c;
-            --accent: #3498db;
-            --gold: #f1c40f;
-            --bg-dark: #0f1a2a;
-            --bg-darker: #0a1320;
-            --bg-light: #1c2b46;
+            --primary: #3498db;
+            --primary-light: #5dade2;
+            --primary-dark: #21618c;
+            --secondary: #2ecc71;
+            --accent: #1abc9c;
+            --bg-dark: #0a1a2d;
+            --bg-darker: #061220;
+            --bg-light: #13283d;
             --text: #ecf0f1;
             --text-light: #bdc3c7;
-            --card-bg: rgba(28, 43, 70, 0.85);
-            --gradient: linear-gradient(135deg, #3498db, #2c3e50);
-            --gradient-gold: linear-gradient(135deg, #f1c40f, #e67e22);
-            --gradient-red: linear-gradient(135deg, #e74c3c, #c0392b);
+            --card-bg: rgba(19, 40, 61, 0.8);
+            --gradient: linear-gradient(135deg, #3498db, #1abc9c);
+            --gradient-dark: linear-gradient(135deg, #21618c, #148f77);
+            --gradient-blue: linear-gradient(135deg, #2980b9, #2c3e50);
         }
         body {
             font-family: 'Cairo', 'Arial', sans-serif;
@@ -38,7 +37,7 @@
             line-height: 1.6;
         }
 
-        /* خلفية محسنة */
+        /* خلفية محسنة مع تأثيرات أكثر سلاسة */
         body::before {
             content: '';
             position: fixed;
@@ -47,13 +46,13 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(241, 196, 15, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(231, 76, 60, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(26, 188, 156, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 40% 40%, rgba(41, 128, 185, 0.05) 0%, transparent 40%);
             z-index: -3;
         }
 
-        /* شبكة هندسية */
+        /* شبكة هندسية خفيفة */
         .grid-bg {
             position: fixed;
             top: 0;
@@ -61,15 +60,15 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(52, 152, 219, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(52, 152, 219, 0.05) 1px, transparent 1px);
-            background-size: 60px 60px;
+                linear-gradient(rgba(52, 152, 219, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(52, 152, 219, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -2;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
-        /* تأثيرات ضوئية */
-        .light-effects {
+        /* أشكال هندسية عائمة */
+        .floating-shapes {
             position: fixed;
             top: 0;
             left: 0;
@@ -79,31 +78,69 @@
             overflow: hidden;
         }
 
-        .light-beam {
+        .shape {
             position: absolute;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.1;
-            filter: blur(1px);
+            background: rgba(52, 152, 219, 0.08);
+            border: 1px solid rgba(52, 152, 219, 0.15);
+            border-radius: 20px;
+            animation: float 20s infinite ease-in-out;
         }
 
-        /* الهيدر */
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 5%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            left: 10%;
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            animation-delay: 5s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 15%;
+            border-radius: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(-5deg);
+            }
+        }
+
+        /* تحسينات الهيدر */
         .header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 26, 42, 0.95);
+            background: rgba(10, 26, 45, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
             transition: all 0.3s ease;
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -112,7 +149,7 @@
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -123,49 +160,56 @@
         }
 
         .logo-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: var(--gradient);
-            border-radius: 15px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: white;
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-item a {
             color: var(--text-light);
             text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 0.95rem;
             position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        .nav-item a i {
-            font-size: 1.2rem;
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 1rem;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
         }
 
         .nav-item a:hover {
             color: white;
-            background: rgba(52, 152, 219, 0.2);
-            transform: translateY(-2px);
+            background: rgba(52, 152, 219, 0.1);
         }
 
-        /* القسم الرئيسي */
+        .nav-item a:hover::after {
+            width: calc(100% - 2rem);
+        }
+
+        /* تحسينات القسم الرئيسي */
         .hero {
             height: 100vh;
             display: flex;
@@ -173,75 +217,54 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding-top: 100px;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(10, 19, 32, 0.9), rgba(10, 19, 32, 0.9)),
-                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
+            padding-top: 80px;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             z-index: 2;
             position: relative;
-            padding: 3rem;
+            padding: 2rem;
         }
 
         .hero-logo {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             margin-bottom: 2rem;
             animation: floatLogo 6s ease-in-out infinite;
-            border-radius: 25px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 3px solid rgba(52, 152, 219, 0.4);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(52, 152, 219, 0.3);
         }
 
         @keyframes floatLogo {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(2deg); }
-            66% { transform: translateY(15px) rotate(-2deg); }
+            33% { transform: translateY(-15px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             font-weight: 900;
-            color: white;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero h1 span {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             color: var(--text-light);
-            max-width: 700px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.8;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -250,110 +273,109 @@
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 1.2rem 3rem;
-            border-radius: 15px;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .play-now-btn i {
-            font-size: 1.4rem;
+        .play-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
         }
 
         .play-now-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.4);
+        }
+
+        .play-now-btn:hover::before {
+            left: 100%;
         }
 
         .store-btn {
-            padding: 1.2rem 3rem;
-            border: 2px solid var(--gold);
-            border-radius: 15px;
-            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border: 2px solid rgba(52, 152, 219, 0.5);
+            border-radius: 12px;
+            font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(241, 196, 15, 0.1);
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
             color: white;
             backdrop-filter: blur(10px);
         }
 
         .store-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(241, 196, 15, 0.3);
-            background: rgba(241, 196, 15, 0.2);
-            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+            background: rgba(52, 152, 219, 0.2);
+            border-color: var(--primary);
         }
 
-        /* قسم الإحصائيات */
+        /* تحسينات الإحصائيات */
         .stats {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(28, 43, 70, 0.9), rgba(15, 26, 42, 0.9));
-            position: relative;
+            padding: 5rem 2rem;
+            background: rgba(10, 26, 45, 0.7);
+            backdrop-filter: blur(10px);
         }
 
-        .stats-bg {
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            opacity: 0.1;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
             z-index: -1;
         }
 
-        .stats-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+            border-color: transparent;
         }
 
-        .stat-card {
-            background: var(--card-bg);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(52, 152, 219, 0.3);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .stat-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 1rem;
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        .stat-card:hover::before {
+            opacity: 0.1;
         }
 
         .stat-number {
@@ -362,39 +384,23 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
             line-height: 1;
         }
 
         .stat-label {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-light);
-            font-weight: 600;
         }
 
-        /* قسم عن السيرفر */
-        .about {
-            padding: 8rem 2rem;
-            background: var(--bg-dark);
-            position: relative;
-        }
-
-        .about-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            opacity: 0.05;
-            z-index: -1;
-        }
-
+        /* تحسينات الأقسام العامة */
         .section-title {
             text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 4rem;
-            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 900;
             position: relative;
             display: inline-block;
@@ -402,149 +408,104 @@
             transform: translateX(-50%);
         }
 
-        .section-title span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-        }
-
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 25%;
-            width: 50%;
-            height: 5px;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
             background: var(--gradient);
-            border-radius: 3px;
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .about {
+            background: var(--bg-dark);
         }
 
         .about-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 3px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
         .about-text {
+            max-width: 800px;
+            text-align: center;
             font-size: 1.3rem;
             line-height: 1.8;
             color: var(--text-light);
-        }
-
-        .about-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            color: white;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            background: rgba(19, 40, 61, 0.5);
+            border-radius: 20px;
+            border-left: 4px solid var(--primary);
         }
 
         .about-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
         }
 
         .about-feature {
             background: var(--card-bg);
-            padding: 2.5rem;
+            padding: 2.5rem 2rem;
             border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
         }
 
         .about-feature:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.3);
-            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+            border-color: var(--primary);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .feature-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: white;
         }
 
         .feature-description {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-light);
-            line-height: 1.6;
         }
 
-        /* قسم القوانين */
+        /* تحسينات قسم القوانين */
         .rules {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, rgba(15, 26, 42, 0.9), rgba(28, 43, 70, 0.9));
-            position: relative;
-        }
-
-        .rules-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            opacity: 0.08;
-            z-index: -1;
+            background: rgba(10, 26, 45, 0.7);
         }
 
         .rules-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .rule-card {
+        .rule-btn {
             background: var(--card-bg);
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             border-radius: 20px;
-            padding: 3rem 2.5rem;
+            padding: 3rem 2rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.4s ease;
@@ -554,100 +515,96 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
-            min-height: 280px;
+            min-height: 250px;
             position: relative;
             overflow: hidden;
         }
 
-        .rule-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(52, 152, 219, 0.3);
-            border-color: transparent;
-        }
-
-        .rule-icon {
-            width: 100px;
-            height: 100px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.4);
-        }
-
-        .rule-title {
-            font-size: 2rem;
-            color: white;
-        }
-
-        /* قسم الخريطة */
-        .map-section {
-            padding: 8rem 2rem;
-            background: var(--bg-dark);
-            text-align: center;
-        }
-
-        .map-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 3px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .map-image {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .map-container:hover .map-image {
-            transform: scale(1.03);
-        }
-
-        /* قسم المتجر */
-        .store-section {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, rgba(28, 43, 70, 0.9), rgba(15, 26, 42, 0.9));
-            position: relative;
-        }
-
-        .store-bg {
+        .rule-btn::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            opacity: 0.08;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
             z-index: -1;
         }
 
+        .rule-btn:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+            border-color: transparent;
+        }
+
+        .rule-btn:hover::before {
+            opacity: 0.1;
+        }
+
+        .rule-btn i {
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rule-btn h3 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* تحسينات قسم الخريطة */
+        .map-section {
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .map-container:hover .map-image {
+            transform: scale(1.02);
+        }
+
+        /* تحسينات قسم المتجر */
+        .store-section {
+            background: rgba(10, 26, 45, 0.7);
+        }
+
         .store-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .store-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .store-item {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 2rem;
             text-align: center;
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
             display: flex;
@@ -657,189 +614,196 @@
             overflow: hidden;
         }
 
+        .store-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
         .store-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
             border-color: transparent;
         }
 
-        .item-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--gradient-red);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        .store-item:hover::before {
+            opacity: 0.1;
         }
 
         .item-icon {
             width: 100%;
-            height: 200px;
+            height: 180px;
             border-radius: 15px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             background: rgba(52, 152, 219, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            color: var(--accent);
-            border: 2px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .item-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin: 1rem 0;
-            background: var(--gradient-gold);
+            font-size: 4rem;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            border: 2px solid rgba(52, 152, 219, 0.2);
         }
 
         .item-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
             color: white;
         }
 
         .item-description {
             flex-grow: 1;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--text-light);
             line-height: 1.6;
-            font-size: 1.1rem;
         }
 
         .buy-btn {
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 1.2rem;
-            border-radius: 15px;
+            padding: 1rem;
+            border-radius: 12px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
+            display: block;
             width: 100%;
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
 
         .buy-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.4);
-            background: var(--gradient);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+            background: var(--gradient-dark);
         }
 
-        /* قسم الديسكورد */
+        .store-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .store-feature {
+            background: rgba(19, 40, 61, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .store-feature:hover {
+            transform: translateY(-5px);
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .store-feature i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .store-feature h3 {
+            margin-bottom: 0.8rem;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        /* تحسينات قسم الديسكورد */
         .discord {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(26, 188, 156, 0.9));
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .discord-bg {
+        .discord::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
             background-size: cover;
-            opacity: 0.1;
-            z-index: 1;
         }
 
         .discord-content {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
         .discord h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             color: white;
             font-weight: 900;
         }
 
         .discord p {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
         }
 
         .discord-btn {
             background: white;
-            color: var(--primary-dark);
-            padding: 1.5rem 4rem;
-            border-radius: 15px;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 900;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
+            font-weight: 700;
+            display: inline-block;
             transition: all 0.3s ease;
-            font-size: 1.3rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        .discord-btn i {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .discord-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             color: var(--primary-dark);
         }
 
-        /* الفوتر */
+        /* تحسينات الفوتر */
         .footer {
             background: var(--bg-darker);
-            padding: 6rem 2rem 2rem;
-            border-top: 3px solid rgba(52, 152, 219, 0.3);
-            position: relative;
-        }
-
-        .footer-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            opacity: 0.05;
-            z-index: -1;
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid rgba(52, 152, 219, 0.3);
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
             color: white;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 0.8rem;
         }
 
         .footer-section h3::after {
@@ -847,16 +811,15 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: var(--gradient);
             border-radius: 2px;
         }
 
-        .footer-section p {
+        .footer-section p, .footer-section ul li {
             color: var(--text-light);
             line-height: 1.8;
-            font-size: 1.1rem;
         }
 
         .footer-section ul {
@@ -864,68 +827,77 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-section ul li a {
             color: var(--text-light);
             text-decoration: none;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
+            display: inline-block;
+            padding: 0.2rem 0;
         }
 
         .footer-section ul li a:hover {
-            color: var(--accent);
+            color: var(--primary-light);
             transform: translateX(-5px);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: var(--card-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .social-link:hover {
-            background: var(--gradient);
-            transform: translateY(-5px);
-            border-color: transparent;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 4rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(52, 152, 219, 0.2);
             color: var(--text-light);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
-        /* النوافذ المنبثقة */
-        .modal {
+        /* جسيمات محسنة */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            animation: floatParticle 8s infinite linear;
+            box-shadow: 0 0 10px var(--primary-light);
+        }
+
+        @keyframes floatParticle {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(0) scale(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) translateX(100px) scale(1);
+            }
+        }
+
+        /* تحسينات النوافذ المنبثقة */
+        .rules-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 19, 32, 0.98);
+            background: rgba(6, 18, 32, 0.95);
             backdrop-filter: blur(10px);
             z-index: 2000;
             align-items: center;
@@ -939,113 +911,131 @@
             to { opacity: 1; }
         }
 
-        .modal-content {
+        .rules-modal-content {
             background: var(--card-bg);
-            border-radius: 25px;
+            border-radius: 20px;
             width: 90%;
-            max-width: 900px;
+            max-width: 800px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 4rem;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             position: relative;
-            border: 2px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.3);
             backdrop-filter: blur(20px);
             animation: slideUp 0.4s ease;
         }
 
         @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
         .close-modal {
             position: absolute;
-            top: 25px;
-            left: 25px;
-            background: var(--gradient-red);
+            top: 20px;
+            left: 20px;
+            background: var(--gradient);
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
             z-index: 10;
         }
 
         .close-modal:hover {
             transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
         }
 
         .modal-title {
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.8rem;
-            color: white;
-            font-weight: 900;
-        }
-
-        .modal-title span {
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
 
-        .modal-rules {
+        .modal-rules-list {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        .modal-rule {
+        .modal-rule-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border-right: 5px solid var(--accent);
+            padding: 1.8rem;
+            border-radius: 15px;
+            border-right: 4px solid var(--primary);
             transition: all 0.3s ease;
         }
 
-        .modal-rule:hover {
+        .modal-rule-item:hover {
             background: rgba(52, 152, 219, 0.1);
-            transform: translateX(-10px);
+            transform: translateX(-5px);
         }
 
-        .modal-rule h4 {
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
+        .modal-rule-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
             color: white;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
         }
 
-        .modal-rule p {
-            font-size: 1.3rem;
+        .modal-rule-item p {
+            font-size: 1.1rem;
             color: var(--text-light);
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
-        /* تأثيرات متحركة */
-        .floating-element {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: rgba(52, 152, 219, 0.1);
-            border-radius: 20px;
-            animation: float 15s infinite ease-in-out;
-            z-index: -1;
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .stat-card, .about-feature, .rule-btn, .store-item {
+                padding: 1.8rem 1.5rem;
+            }
+            
+            .play-now-btn, .store-btn, .buy-btn, .discord-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+            }
+            
+            .rules-modal-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .modal-title {
+                font-size: 1.8rem;
+            }
         }
 
         /* شريط التمرير المخصص */
         ::-webkit-scrollbar {
-            width: 12px;
+            width: 10px;
         }
 
         ::-webkit-scrollbar-track {
@@ -1054,66 +1044,22 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--gradient);
-            border-radius: 6px;
-            border: 3px solid var(--bg-darker);
+            border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient);
-        }
-
-        /* التجاوب مع الأجهزة */
-        @media (max-width: 1200px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .about-image {
-                max-width: 800px;
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .play-now-btn, .store-btn, .buy-btn, .discord-btn {
-                padding: 1rem 2rem;
-                font-size: 1.1rem;
-            }
-            
-            .modal-content {
-                padding: 2.5rem 1.5rem;
-            }
-            
-            .modal-title {
-                font-size: 2rem;
-            }
-            
-            .stat-card, .about-feature, .rule-card, .store-item {
-                padding: 2rem 1.5rem;
-            }
+            background: var(--gradient-dark);
         }
     </style>
 </head>
 <body>
+    <div class="particles" id="particles"></div>
     <div class="grid-bg"></div>
-    <div class="light-effects"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
 
     <header class="header">
         <nav class="nav-container">
@@ -1122,376 +1068,338 @@
                 Legesty City
             </div>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
-                <li class="nav-item"><a href="#about"><i class="fas fa-info-circle"></i> عن السيرفر</a></li>
-                <li class="nav-item"><a href="#rules"><i class="fas fa-gavel"></i> القوانين</a></li>
-                <li class="nav-item"><a href="#map"><i class="fas fa-map"></i> الخريطة</a></li>
-                <li class="nav-item"><a href="#store"><i class="fas fa-store"></i> المتجر</a></li>
-                <li class="nav-item"><a href="#discord"><i class="fab fa-discord"></i> الديسكورد</a></li>
+                <li class="nav-item"><a href="#home">الرئيسية</a></li>
+                <li class="nav-item"><a href="#about">عن السيرفر</a></li>
+                <li class="nav-item"><a href="#rules">قوانين السيرفر</a></li>
+                <li class="nav-item"><a href="#map">خريطة السيرفر</a></li>
+                <li class="nav-item"><a href="#store">متجر السيرفر</a></li>
+                <li class="nav-item"><a href="https://discord.gg/fm4" target="_blank">ديسكورد</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- القسم الرئيسي -->
+    <!-- 1. القسم الأول: مرحباً بك -->
     <section id="home" class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
             <img src="https://cdn.discordapp.com/attachments/1401482800690888704/1456806227374899221/f0b2bc3d4e2c010f.png?ex=6959b406&is=69586286&hm=68379d39621246b2b378b198da628032164f5a487ca8c29dcf000d561c93551f&" class="hero-logo">
-            <h1>مرحباً بك في <span>Legesty City</span></h1>
-            <p>أكبر سيرفر حياة واقعية في العالم العربي! انضم إلى مجتمعنا المتميز واستمتع بتجربة لعب فريدة من نوعها مع أحدث الأنظمة وأفضل الخدمات</p>
+            <h1>Legesty City مرحبا بك في</h1>
+            <p>أفضل سيرفر رول بلاي في العالم العربي! انضم إلى مجتمعنا المتميز واستمتع بتجربة لعب فريدة من نوعها مع أحدث الأنظمة وأفضل الخدمات</p>
             <div class="cta-buttons">
-                <a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw" target="_blank" class="play-now-btn">
-                    <i class="fas fa-gamepad"></i> ابدأ اللعب الآن
-                </a>
-                <a href="#store" class="store-btn">
-                    <i class="fas fa-gem"></i> متجر ليجستي
-                </a>
+                <a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw" target="_blank" class="play-now-btn">ابدأ اللعب الآن</a>
+                <a href="#store" class="store-btn">متجر ليجستي</a>
             </div>
         </div>
     </section>
 
-    <!-- قسم الإحصائيات -->
     <section class="stats">
-        <div class="stats-bg"></div>
         <div class="stats-container">
             <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number">10,000+</div>
-                <div class="stat-label">لاعب نشط</div>
+                <div class="stat-number">128+</div>
+                <div class="stat-label">أقصى عدد للاعبين</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
                 <div class="stat-number">24/7</div>
-                <div class="stat-label">متاح دائماً</div>
+                <div class="stat-label">الماب مفتوح</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="stat-number">4.9/5</div>
-                <div class="stat-label">تقييم اللاعبين</div>
+                <div class="stat-number">6+</div>
+                <div class="stat-label">وظيفة متنوعة</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <div class="stat-number">50+</div>
-                <div class="stat-label">ميزة فريدة</div>
+                <div class="stat-number">5★</div>
+                <div class="stat-label">تقييم ممتاز</div>
             </div>
         </div>
     </section>
 
-    <!-- قسم عن السيرفر -->
+    <!-- 2. القسم الثاني: عن السيرفر -->
     <section id="about" class="about">
-        <div class="about-bg"></div>
-        <h2 class="section-title">عن <span>Legesty City</span></h2>
+        <h2 class="section-title">عن السيرفر</h2>
         <div class="about-container">
             <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="مدينة ليجستي">
-                </div>
                 <div class="about-text">
-                    <h3>مدينة الأحلام أصبحت حقيقة!</h3>
-                    <p>Legesty City هو أكثر من مجرد سيرفر روبلوكس، إنها تجربة حياة كاملة! مع أنظمة واقعية متطورة ورسومات مذهلة وتفاعلات حقيقية، ستشعر وكأنك تعيش في مدينة حقيقية.</p>
-                    <p>انضم إلى آلاف اللاعبين الذين اختاروا Legesty City كوجهتهم المفضلة للترفيه والتواصل الاجتماعي. استكشف المدينة الواسعة، ابدأ عملك الخاص، تعاون مع الأصدقاء، وعش مغامرة لا تُنسى!</p>
-                    <p>بفضل فريق التطوير المتميز والدعم الفني المتواصل، نحن نضمن لك تجربة لعب سلسة وخالية من المشاكل.</p>
+                    <p>Legesty City هو سيرفر حياة واقعية سعودي، يتميز بنظام واقعي على مستوى عالٍ يستطيع اللاعب التفاعل داخل الرول بلاي ويتفرد السيرفر بشكل قوي وقطاعات متنوعة.</p>
                 </div>
-            </div>
-            <div class="about-features">
-                <div class="about-feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="feature-title">تنوع كبير في الوظائف والمشاريع</h3>
+                        <p class="feature-description">مجالات متعددة تمنحك حرية الاختيار والتجربة</p>
                     </div>
-                    <h3 class="feature-title">حماية وأمان</h3>
-                    <p class="feature-description">أنظمة حماية متطورة لحماية بياناتك وحسابك من أي تهديدات</p>
-                </div>
-                <div class="about-feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
+                    <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">تفاعل مميز بين اللاعبين</h3>
+                        <p class="feature-description">مجتمع مليء بالنشاط والحيوية</p>
                     </div>
-                    <h3 class="feature-title">تحديثات مستمرة</h3>
-                    <p class="feature-description">إضافة محتوى جديد وتحسينات دورية لتجربة لعب أفضل</p>
-                </div>
-                <div class="about-feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+                    <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="feature-title">تجربة رول بلاي واقعية باحترافية عالية</h3>
+                        <p class="feature-description">نظام يجمع بين الواقعية والمتعة في كل التفاصيل</p>
                     </div>
-                    <h3 class="feature-title">دعم فني 24/7</h3>
-                    <p class="feature-description">فريق دعم فني متواجد على مدار الساعة لمساعدتك في أي وقت</p>
-                </div>
-                <div class="about-feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
+                    <div class="about-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="feature-title">جودة وتطوير مستمر</h3>
+                        <p class="feature-description">تحديثات مستمرة لتحسين تجربة اللاعبين</p>
                     </div>
-                    <h3 class="feature-title">جودة عالية</h3>
-                    <p class="feature-description">أعلى معايير الجودة في التصميم والأداء والتجربة</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم القوانين -->
+    <!-- 3. القسم الثالث: قوانين السيرفر -->
     <section id="rules" class="rules">
-        <div class="rules-bg"></div>
-        <h2 class="section-title">قوانين <span>Legesty City</span></h2>
+        <h2 class="section-title">قوانين السيرفر</h2>
         <div class="rules-container">
-            <div class="rule-card" id="discordRulesBtn">
-                <div class="rule-icon">
-                    <i class="fab fa-discord"></i>
-                </div>
-                <h3 class="rule-title">قوانين الديسكورد</h3>
-                <p>تعرف على قوانين مجتمعنا في الديسكورد</p>
+            <!-- زر قوانين الديسكورد -->
+            <div class="rule-btn" id="discordRulesBtn">
+                <i class="fab fa-discord"></i>
+                <h3>قوانين الديسكورد</h3>
             </div>
-            <div class="rule-card" id="nlrRulesBtn">
-                <div class="rule-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h3 class="rule-title">قوانين NLR</h3>
-                <p>قوانين الحياة الجديدة ولوائح اللعب</p>
+
+            <!-- زر قوانين الحياة الجديدة -->
+            <div class="rule-btn" id="nlrRulesBtn">
+                <i class="fas fa-heartbeat"></i>
+                <h3>الحياة الجديدة - NLR</h3>
             </div>
-            <div class="rule-card" id="otherRulesBtn">
-                <div class="rule-icon">
-                    <i class="fas fa-book"></i>
-                </div>
-                <h3 class="rule-title">القوانين العامة</h3>
-                <p>جميع القوانين واللوائح المهمة</p>
+
+            <!-- زر القوانين الأخرى -->
+            <div class="rule-btn" id="otherRulesBtn">
+                <i class="fas fa-gavel"></i>
+                <h3>قوانين أخرى</h3>
             </div>
         </div>
     </section>
 
-    <!-- قسم الخريطة -->
+    <!-- 4. القسم الرابع: خريطة السيرفر -->
     <section id="map" class="map-section">
-        <h2 class="section-title">خريطة <span>Legesty City</span></h2>
+        <h2 class="section-title">خريطة السيرفر</h2>
         <div class="map-container">
-            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="خريطة Legesty City" class="map-image">
+            <img src="https://media.discordapp.net/attachments/1268435462075187222/1455753199070871625/1f37d2aa7bc83bd5.png?ex=69592b11&is=6957d991&hm=f771284a9fd613bbcb3130ed6cf316bb114e0cac773df14bf15459a3a9331f90&=&format=webp&quality=lossless&width=1494&height=1029" alt="خريطة Legesty City" class="map-image">
         </div>
     </section>
 
-    <!-- قسم المتجر -->
+    <!-- 5. القسم الخامس: متجر السيرفر -->
     <section id="store" class="store-section">
-        <div class="store-bg"></div>
-        <h2 class="section-title">متجر <span>Legesty City</span></h2>
+        <h2 class="section-title">متجر ليجستي سيتي</h2>
         <div class="store-container">
             <div class="store-grid">
+                <!-- مقابلة فورية -->
                 <div class="store-item">
-                    <div class="item-badge">الأكثر مبيعاً</div>
                     <div class="item-icon">
-                        <i class="fas fa-crown"></i>
+                        <i class="fas fa-video"></i>
                     </div>
-                    <h3 class="item-title">عضو VIP</h3>
-                    <p class="item-description">احصل على مزايا حصرية وأولوية في الخدمات ودخول خاص للمناطق المميزة</p>
-                    <div class="item-price">49.99 SAR</div>
-                    <a href="https://www.roblox.com/game-pass/1433005651/unnamed" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> شراء الآن
-                    </a>
+                    <h3 class="item-title">مقابلة فورية</h3>
+                    <p class="item-description">انضم الآن واحصل على فرصة الدخول للسيرفر مباشرة</p>
+                    <a href="https://www.roblox.com/game-pass/1433005651/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
                 
+                <!-- بيت خاص -->
                 <div class="store-item">
-                    <div class="item-badge">جديد</div>
                     <div class="item-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="item-title">فيلا فاخرة</h3>
-                    <p class="item-description">امتلك فيلا فاخرة مع إطلالة رائعة على المدينة ومساحات واسعة وتصميم حديث</p>
-                    <div class="item-price">79.99 SAR</div>
-                    <a href="https://www.roblox.com/game-pass/1535469582/unnamed" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> شراء الآن
-                    </a>
+                    <h3 class="item-title">بيت خاص</h3>
+                    <p class="item-description">امتلك منزلك الخاص داخل المدينة وعيش التجربة بطريقتك</p>
+                    <a href="https://www.roblox.com/game-pass/1535469582/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
                 
+                <!-- فك الباند -->
                 <div class="store-item">
-                    <div class="item-badge">عرض محدود</div>
                     <div class="item-icon">
-                        <i class="fas fa-car"></i>
+                        <i class="fas fa-unlock"></i>
                     </div>
-                    <h3 class="item-title">سيارة رياضية</h3>
-                    <p class="item-description">قم بشراء سيارة رياضية سريعة مع إمكانية التعديل والتخصيص الكامل</p>
-                    <div class="item-price">34.99 SAR</div>
-                    <a href="https://www.roblox.com/game-pass/1477829644/unnamed" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> شراء الآن
-                    </a>
+                    <h3 class="item-title">فك الباند</h3>
+                    <p class="item-description">قم بفك الحظر عن حسابك واستعد دخولك إلى السيرفر</p>
+                    <a href="https://www.roblox.com/game-pass/1477829644/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
                 
+                <!-- مشروع عام -->
                 <div class="store-item">
                     <div class="item-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3 class="item-title">رخصة عمل</h3>
-                    <p class="item-description">احصل على رخصة لبدء عملك الخاص وكن سيد قرارك في عالم الأعمال</p>
-                    <div class="item-price">29.99 SAR</div>
-                    <a href="https://www.roblox.com/game-pass/1477541653/unnamed" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> شراء الآن
-                    </a>
+                    <h3 class="item-title">مشروع عام</h3>
+                    <p class="item-description">ابدأ مشروعك التجاري الخاص وحقق طموحك داخل المدينة</p>
+                    <a href="https://www.roblox.com/game-pass/1477541653/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
                 
+                <!-- عضوية VIP -->
                 <div class="store-item">
                     <div class="item-icon">
-                        <i class="fas fa-unlock-alt"></i>
+                        <i class="fas fa-crown"></i>
                     </div>
-                    <h3 class="item-title">فك الحظر</h3>
-                    <p class="item-description">قم بفك الحظر عن حسابك واستعد للعودة إلى عالم Legesty City</p>
-                    <div class="item-price">19.99 SAR</div>
-                    <a href="https://www.roblox.com/game-pass/1477829644/unnamed" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> شراء الآن
-                    </a>
+                    <h3 class="item-title">عضوية VIP</h3>
+                    <p class="item-description">احصل على مزايا حصرية وأولوية في جميع الخدمات</p>
+                    <a href="https://www.roblox.com/game-pass/1433005651/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
                 </div>
                 
+                <!-- سيارة خاصة -->
                 <div class="store-item">
                     <div class="item-icon">
-                        <i class="fas fa-gem"></i>
+                        <i class="fas fa-car"></i>
                     </div>
-                    <h3 class="item-title">عملات Legesty</h3>
-                    <p class="item-description">احصل على عملات Legesty لاستخدامها في جميع أجزاء المدينة</p>
-                    <div class="item-price">14.99 SAR</div>
-                    <a href="https://www.roblox.com/game-pass/1477829644/unnamed" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> شراء الآن
-                    </a>
+                    <h3 class="item-title">سيارة خاصة</h3>
+                    <p class="item-description">امتلك سيارتك الخاصة واستمتع بالتنقل بحرية في المدينة</p>
+                    <a href="https://www.roblox.com/game-pass/1535469582/unnamed" target="_blank" class="buy-btn">شراء الآن</a>
+                </div>
+            </div>
+
+            <div class="store-features">
+                <div class="store-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>دفع آمن</h3>
+                    <p>نظام دفع آمن ومحمي بنظام تشفير متقدم</p>
+                </div>
+                <div class="store-feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>تسليم فوري</h3>
+                    <p>تسليم فوري للطلبات بعد إتمام عملية الدفع</p>
+                </div>
+                <div class="store-feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>دعم فني</h3>
+                    <p>دعم فني متواصل على مدار الساعة</p>
+                </div>
+                <div class="store-feature">
+                    <i class="fas fa-undo"></i>
+                    <h3>استرجاع</h3>
+                    <p>إمكانية استرجاع المنتج في حال وجود مشكلة</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم الديسكورد -->
     <section id="discord" class="discord">
-        <div class="discord-bg"></div>
         <div class="discord-content">
             <h2>انضم إلى مجتمعنا</h2>
-            <p>تواصل مع آلاف اللاعبين، احصل على آخر الأخبار والتحديثات، وكن أول من يعرف عن العروض الحصرية!</p>
-            <a href="https://discord.gg/fm4" target="_blank" class="discord-btn">
-                <i class="fab fa-discord"></i> انضم إلى الديسكورد
-            </a>
+            <p>تواصل مع اللاعبين الآخرين واحصل على آخر الأخبار والتحديثات</p>
+            <a href="https://discord.gg/fm4" class="discord-btn">انضم إلى Discord</a>
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer class="footer">
-        <div class="footer-bg"></div>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Legesty City</h3>
-                <p>أكبر وأفضل سيرفر حياة واقعية في العالم العربي. انضم إلينا اليوم وابدأ رحلتك في عالم Legesty City!</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
+                <p>أفضل سيرفر الحياة الواقعية في Roblox. انضم إلينا وعش تجربة لا تُنسى.</p>
             </div>
             <div class="footer-section">
                 <h3>روابط سريعة</h3>
                 <ul>
-                    <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-left"></i> عن السيرفر</a></li>
-                    <li><a href="#rules"><i class="fas fa-chevron-left"></i> القوانين</a></li>
-                    <li><a href="#map"><i class="fas fa-chevron-left"></i> الخريطة</a></li>
-                    <li><a href="#store"><i class="fas fa-chevron-left"></i> المتجر</a></li>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن السيرفر</a></li>
+                    <li><a href="#rules">قوانين السيرفر</a></li>
+                    <li><a href="#map">خريطة السيرفر</a></li>
+                    <li><a href="#store">متجر السيرفر</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>الدعم والمساعدة</h3>
+                <h3>تواصل معنا</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-left"></i> الشروط والأحكام</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-left"></i> الإبلاغ عن مشكلة</a></li>
+                    <li><a href="https://discord.gg/fm4">Discord</a></li>
+                    <li><a href="https://www.roblox.com/games/105488459440074/Legesty-City-Cfw">Roblox</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>معلومات الاتصال</h3>
-                <p><i class="fas fa-envelope"></i> support@legestycity.com</p>
-                <p><i class="fas fa-clock"></i> الدعم متوفر 24/7</p>
-                <p><i class="fas fa-users"></i> أكثر من 10,000 لاعب نشط</p>
+                <h3>معلومات السيرفر</h3>
+                <ul>
+                    <li>أعضاء السيرفر: 4328</li>
+                    <li>الحالة: متصل</li>
+                    <li>الإصدار: 2.5.1</li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 Legesty City. جميع الحقوق محفوظة. هذا المشروع غير مرتبط رسمياً بـ Roblox Corporation.</p>
+            <p>© 2025 Legesty City. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <!-- نوافذ القوانين -->
-    <div class="modal" id="discordRulesModal">
-        <div class="modal-content">
+    <!-- نوافذ القوانين المنبثقة -->
+    <!-- نافذة قوانين الديسكورد -->
+    <div class="rules-modal" id="discordRulesModal">
+        <div class="rules-modal-content">
             <button class="close-modal">&times;</button>
-            <h2 class="modal-title">قوانين <span>الديسكورد</span></h2>
-            <div class="modal-rules">
-                <div class="modal-rule">
-                    <h4><i class="fas fa-handshake"></i> الاحترام المتبادل</h4>
-                    <p>نحن نؤمن بمجتمع محترم وآمن. يمنع السب أو الإهانة أو التهديد بأي شكل من الأشكال. احترم آراء الآخرين حتى وإن اختلفت معها.</p>
+            <h2 class="modal-title"><i class="fab fa-discord"></i> قوانين الديسكورد</h2>
+            <div class="modal-rules-list">
+                <div class="modal-rule-item">
+                    <h4>الاحترام</h4>
+                    <p>احترام الجميع وعدم السب وإهانة أي شخص مهما كانت الظروف</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-link"></i> الروابط الخارجية</h4>
-                    <p>يمنع نشر أي روابط لسيرفرات أو مواقع منافسة دون إذن مسبق من الإدارة. الروابط الضارة أو غير الآمنة ستؤدي إلى حظر فوري.</p>
+                <div class="modal-rule-item">
+                    <h4>الروابط</h4>
+                    <p>عدم وضع روابط دعوات لسيرفرات أخرى</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-comment-slash"></i> المحتوى المسيء</h4>
-                    <p>يمنع نشر أي محتوى عنصري، ديني، سياسي، جنسي، أو أي محتوى غير لائق. نحافظ على بيئة مناسبة للجميع.</p>
+                <div class="modal-rule-item">
+                    <h4>المواضيع الحساسة</h4>
+                    <p>عدم الخوض بالأمور الدينية أو السياسية</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-user-secret"></i> هوية المستخدم</h4>
-                    <p>يمنع انتحال شخصية أي عضو في الإدارة أو التظاهر بأنك شخص آخر. استخدم اسمك الحقيقي أو اسم مستعار مناسب.</p>
+                <div class="modal-rule-item">
+                    <h4>تعدد الحسابات</h4>
+                    <p>ممنوع امتلاك أكثر من حساب ديسكورد</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-bell-slash"></i> الإزعاج والسبام</h4>
-                    <p>يمنع إرسال رسائل متكررة (سبام) أو استخدام الإشارات (@everyone) بدون سبب مقنع. حافظ على نظافة القنوات.</p>
+                <div class="modal-rule-item">
+                    <h4>انتحال الشخصيات</h4>
+                    <p>يمنع انتحال الشخصيات الإدارية</p>
+                </div>
+                <div class="modal-rule-item">
+                    <h4>السبام</h4>
+                    <p>يمنع السبام في الشات</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal" id="nlrRulesModal">
-        <div class="modal-content">
+    <!-- نافذة قوانين الحياة الجديدة -->
+    <div class="rules-modal" id="nlrRulesModal">
+        <div class="rules-modal-content">
             <button class="close-modal">&times;</button>
-            <h2 class="modal-title">قوانين <span>الحياة الجديدة</span></h2>
-            <div class="modal-rules">
-                <div class="modal-rule">
-                    <h4><i class="fas fa-bed"></i> فقدان الوعي الكامل</h4>
-                    <p>عند دخولك في حالة إغماء كامل، لا يمكنك التحدث أو الحركة أو فعل أي شيء. أنت خارج الخدمة تماماً حتى يتم إنقاذك.</p>
+            <h2 class="modal-title"><i class="fas fa-heartbeat"></i> قوانين الحياة الجديدة - NLR</h2>
+            <div class="modal-rules-list">
+                <div class="modal-rule-item">
+                    <h4>الإغماء الكامل</h4>
+                    <p>في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة أو فعل أي شيء</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-ambulance"></i> الإنعاش الطبي</h4>
-                    <p>إذا تم إنعاشك من قبل المسعفين، يمكنك تذكر جميع الأحداث التي حصلت لك قبل فقدان الوعي. هذه قاعدة أساسية في NLR.</p>
+                <div class="modal-rule-item">
+                    <h4>الإنعاش من المسعفين</h4>
+                    <p>في حال تم إسقاطك وإنعاشك من قبل مسعفين تستطيع تذكر جميع الأحداث</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-syringe"></i> العلاج في العيادة</h4>
-                    <p>إذا تم إعطاؤك إبرة في العيادة، فإنك تفقد الذاكرة المؤقتة ولا يمكنك تذكر أي أحداث حصلت قبل العلاج.</p>
-                </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-redo"></i> بداية جديدة</h4>
-                    <p>بعد عودتك من الموت أو الإغماء، يجب أن تبدأ حياة جديدة. لا يمكنك العودة لمكان حدوث المشكلة أو الانتقام مباشرة.</p>
+                <div class="modal-rule-item">
+                    <h4>الإبرة في العيادة</h4>
+                    <p>في حال تم إعطاؤك إبرة في العيادة الخاصة لا تستطيع تذكر أي شيء حصل لك</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal" id="otherRulesModal">
-        <div class="modal-content">
+    <!-- نافذة القوانين الأخرى -->
+    <div class="rules-modal" id="otherRulesModal">
+        <div class="rules-modal-content">
             <button class="close-modal">&times;</button>
-            <h2 class="modal-title">القوانين <span>العامة</span></h2>
-            <div class="modal-rules">
-                <div class="modal-rule">
-                    <h4><i class="fas fa-gamepad"></i> Power Gaming</h4>
-                    <p>يمنع استخدام الثغرات أو الوسائل غير المشروعة للحصول على مزايا. اللعب النزيه هو أساس المتعة للجميع.</p>
+            <h2 class="modal-title"><i class="fas fa-gavel"></i> قوانين أخرى</h2>
+            <div class="modal-rules-list">
+                <div class="modal-rule-item">
+                    <h4>الباور جيمنج - PowerGaming</h4>
+                    <p>استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-skull-crossbones"></i> NVL - عدم الخوف على الحياة</h4>
-                    <p>يجب أن تتصرف بشكل واقعي عندما تتعرض للتهديد. تجاهل التهديدات بالأسلحة يعتبر مخالفة كبيرة.</p>
+                <div class="modal-rule-item">
+                    <h4>الخوف على الحياة - NVL</h4>
+                    <p>عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-eye-slash"></i> Metagaming</h4>
-                    <p>يمنع استخدام المعلومات التي حصلت عليها من خارج اللعبة (يوتيوب، بث مباشر، دردشة) داخل الرول بلاي.</p>
+                <div class="modal-rule-item">
+                    <h4>الميتا جيمنج - Metagaming</h4>
+                    <p>أي معلومة تحصل عليها من خارج المدينة (بث، ديسكورد، يوتيوب) تعتبر مخالفة</p>
                 </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-user-ninja"></i> RDM - القتل العشوائي</h4>
-                    <p>القتل دون سبب منطقي أو تهديد مسبق ممنوع تماماً. كل فعل يجب أن يكون مبرراً ضمن سياق الرول بلاي.</p>
-                </div>
-                <div class="modal-rule">
-                    <h4><i class="fas fa-microphone-slash"></i> OOC - خارج الشخصية</h4>
-                    <p>حافظ على الفصل بين حديثك الشخصي وحديث شخصيتك داخل اللعبة. استخدم القنوات المخصصة للحديث خارج الدور.</p>
+                <div class="modal-rule-item">
+                    <h4>القتل العشوائي - RDM</h4>
+                    <p>قتل الأشخاص دون سبب أو تهديد أو بصورة عشوائية يعتبر ممنوع</p>
                 </div>
             </div>
         </div>
@@ -1512,22 +1420,23 @@
             });
         });
 
-        // إضافة تأثيرات ضوئية
-        function createLightEffects() {
-            const container = document.querySelector('.light-effects');
-            for (let i = 0; i < 5; i++) {
-                const beam = document.createElement('div');
-                beam.className = 'light-beam';
-                beam.style.top = Math.random() * 100 + '%';
-                beam.style.transform = `rotate(${Math.random() * 360}deg)`;
-                beam.style.animation = `moveBeam ${10 + Math.random() * 20}s infinite linear`;
-                container.appendChild(beam);
+        // إنشاء الجسيمات المتحركة
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.backgroundColor = i % 3 === 0 ? '#3498db' : i % 3 === 1 ? '#1abc9c' : '#5dade2';
+                particlesContainer.appendChild(particle);
             }
         }
 
-        // التحكم في النوافذ المنبثقة
+        // التحكم في نوافذ القوانين المنبثقة
         document.addEventListener('DOMContentLoaded', function() {
-            createLightEffects();
+            createParticles();
 
             // عناصر القوانين
             const discordRulesBtn = document.getElementById('discordRulesBtn');
@@ -1542,17 +1451,19 @@
             // أزرار الإغلاق
             const closeButtons = document.querySelectorAll('.close-modal');
 
-            // فتح النوافذ
+            // فتح نافذة قوانين الديسكورد
             discordRulesBtn.addEventListener('click', function() {
                 discordRulesModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             });
 
+            // فتح نافذة قوانين الحياة الجديدة
             nlrRulesBtn.addEventListener('click', function() {
                 nlrRulesModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             });
 
+            // فتح نافذة القوانين الأخرى
             otherRulesBtn.addEventListener('click', function() {
                 otherRulesModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
@@ -1568,7 +1479,7 @@
                 });
             });
 
-            // إغلاق بالنقر خارج المحتوى
+            // إغلاق النوافذ عند النقر خارجها
             window.addEventListener('click', function(event) {
                 if (event.target === discordRulesModal) {
                     discordRulesModal.style.display = 'none';
@@ -1589,17 +1500,17 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 26, 42, 0.98)';
+                header.style.background = 'rgba(10, 26, 45, 0.98)';
                 header.style.backdropFilter = 'blur(20px)';
-                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
             } else {
-                header.style.background = 'rgba(15, 26, 42, 0.95)';
+                header.style.background = 'rgba(10, 26, 45, 0.95)';
                 header.style.backdropFilter = 'blur(15px)';
                 header.style.boxShadow = 'none';
             }
             
             // تأثيرات التمرير على العناصر
-            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-card, .store-item');
+            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-btn, .store-item');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
@@ -1613,27 +1524,18 @@
 
         // تهيئة تأثيرات التمرير
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-card, .store-item');
+            const elements = document.querySelectorAll('.stat-card, .about-feature, .rule-btn, .store-item');
             elements.forEach(element => {
                 element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             });
             
+            // تشغيل تأثيرات بعد تحميل الصفحة
             setTimeout(() => {
                 window.dispatchEvent(new Event('scroll'));
             }, 100);
         });
-
-        // إضافة CSS لحركة الأشعة
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes moveBeam {
-                0% { transform: translateX(-100%) rotate(45deg); }
-                100% { transform: translateX(100%) rotate(45deg); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
